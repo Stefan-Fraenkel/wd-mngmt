@@ -6,18 +6,18 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>{{ __('Hochzeit') }} &mdash; {{ __('Stefan & Eli') }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
 
-  <!-- 
+  <!--
 	//////////////////////////////////////////////////////
 
-	FREE HTML5 TEMPLATE 
+	FREE HTML5 TEMPLATE
 	DESIGNED & DEVELOPED by FREEHTML5.CO
-		
+
 	Website: 		http://freehtml5.co/
 	Email: 			info@freehtml5.co
 	Twitter: 		http://twitter.com/fh5co
@@ -39,7 +39,7 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -66,43 +66,43 @@
 
 	</head>
 	<body>
-		
+
 	<div class="fh5co-loader"></div>
-	
+
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">Wedding<strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="index.html">{{ __('Hochzeit') }}<strong>.</strong></a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="about.html">Story</a></li>
+						<li class="active"><a href="index.html">{{ __('Start') }}</a></li>
+						<li><a href="about.html">{{ __('Geschichte') }}</a></li>
 						<li class="has-dropdown">
-							<a href="services.html">Services</a>
+							<a href="services.html">{{ __('Dropdown') }}</a>
 							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
+								<li><a href="#">{{ __('DD1') }}</a></li>
+								<li><a href="#">{{ __('DD2') }}</a></li>
+								<li><a href="#">{{ __('DD3') }}</a></li>
+								<li><a href="#">{{ __('DD4') }}</a></li>
 							</ul>
 						</li>
 						<li class="has-dropdown">
-							<a href="gallery.html">Gallery</a>
+							<a href="gallery.html">{{ __('Gallerie') }}</a>
 							<ul class="dropdown">
-								<li><a href="#">HTML5</a></li>
-								<li><a href="#">CSS3</a></li>
-								<li><a href="#">Sass</a></li>
-								<li><a href="#">jQuery</a></li>
+								<li><a href="#">{{ __('Trauung') }}</a></li>
+								<li><a href="#">{{ __('G2') }}</a></li>
+								<li><a href="#">{{ __('G3') }}</a></li>
+								<li><a href="#">{{ __('G4') }}</a></li>
 							</ul>
 						</li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="contact.html">{{ __('Kontakt') }}</a></li>
 					</ul>
 				</div>
 			</div>
-			
+
 		</div>
 	</nav>
 
@@ -113,10 +113,10 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>Joefrey &amp; Sheila</h1>
-							<h2>We Are Getting Married</h2>
+							<h1>{{ __('Stefan + Eli') }}</h1>
+							<h2>{{ __('Wir Heiraten') }}</h2>
 							<div class="simply-countdown simply-countdown-one"></div>
-							<p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
+							<p><a href="#" class="btn btn-default btn-sm">{{ __('Wichtiger Link') }}</a></p>
 						</div>
 					</div>
 				</div>
@@ -128,9 +128,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Hello!</h2>
-					<h3>November 28th, 2016 New York, USA</h3>
-					<p>We invited you to celebrate our wedding</p>
+					<h2>{{ __('Hallo!') }}</h2>
+					<h3>{{ __('27. Juli, 2022 Blagoevgrad, Bulgarien') }}</h3>
+					<p>{{ __('Wir laden dich ein, mit uns zu feiern') }}</p>
 				</div>
 			</div>
 			<div class="couple-wrap animate-box">
@@ -139,8 +139,8 @@
 						<img src="images/groom.jpg" alt="groom" class="img-responsive">
 					</div>
 					<div class="desc-groom">
-						<h3>Joefrey Mahusay</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<h3>{{ __('Stefan Fränkel') }}</h3>
+						<p>{{ __('Ein Text') }}</p>
 					</div>
 				</div>
 				<p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -149,8 +149,8 @@
 						<img src="images/bride.jpg" alt="groom" class="img-responsive">
 					</div>
 					<div class="desc-bride">
-						<h3>Sheila Mahusay</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<h3>{{ __('Elitsa Stambolova') }}</h3>
+						<p>{{ __('Ein text') }}</p>
 					</div>
 				</div>
 			</div>
@@ -162,8 +162,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>Our Special Events</span>
-					<h2>Wedding Events</h2>
+					<span>{{ __('Wichtige Termine') }}</span>
+					<h2>{{ __('Hochzeitsveranstaltungen') }}</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -172,34 +172,34 @@
 						<div class="col-md-10 col-md-offset-1">
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
-									<h3>Main Ceremony</h3>
+									<h3>{{ __('Hochzeitszeremonie') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-										<span>4:00 PM</span>
-										<span>6:00 PM</span>
+										<span>{{ __('17:00 Uhr') }}</span>
+										<span>{{ __('17:45 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
-										<span>Monday 28</span>
-										<span>November, 2016</span>
+										<span>{{ __('Samstag 23.') }}</span>
+										<span>{{ __('Juli, 2022') }}</span>
 									</div>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									<p>{{ __('Weitere Informationen') }}</p>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
-									<h3>Wedding Party</h3>
+									<h3>{{ __('Hochzeitsfeier') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-										<span>7:00 PM</span>
-										<span>12:00 AM</span>
+										<span>{{ __('18:00 Uhr') }}</span>
+										<span>{{ __('??:?? Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
-										<span>Monday 28</span>
-										<span>November, 2016</span>
+										<span>{{ __('Samstag 23.') }}</span>
+										<span>{{ __('Juli 2022') }}</span>
 									</div>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									<p>{{ __('Weitere Informationen') }}</p>
 								</div>
 							</div>
 						</div>
@@ -275,8 +275,8 @@
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
 					<ul id="fh5co-gallery-list">
-						
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-1.jpg); "> 
+
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-1.jpg); ">
 						<a href="images/gallery-1.jpg">
 							<div class="case-studies-summary">
 								<span>14 Photos</span>
@@ -337,7 +337,7 @@
 							</a>
 						</li>
 
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-8.jpg); "> 
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-8.jpg); ">
 							<a href="#" class="color-5">
 								<div class="case-studies-summary">
 									<span>90 Photos</span>
@@ -353,7 +353,7 @@
 								</div>
 							</a>
 						</li>
-					</ul>		
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -468,7 +468,7 @@
 
 	<div id="fh5co-services" class="fh5co-section-gray">
 		<div class="container">
-			
+
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>We Offer Services</h2>
@@ -518,7 +518,7 @@
 				</div>
 			</div>
 
-			
+
 		</div>
 	</div>
 
@@ -562,7 +562,7 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
 						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
 					</p>
 					<p>
@@ -583,7 +583,7 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -613,16 +613,22 @@
 
     // default example
     simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
+        year: 2022, // required
+        month: 7, // required
+        day: 23, // required
+       // year: d.getFullYear(),
+      //  month: d.getMonth() + 1,
+      //  day: d.getDate()
     });
 
     //jQuery example
     $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
+        year: 2022, // required
+        month: 7, // required
+        day: 23, // required
+       // year: d.getFullYear(),
+      //  month: d.getMonth() + 1,
+      //  day: d.getDate(),
         enableUtc: false
     });
 </script>
