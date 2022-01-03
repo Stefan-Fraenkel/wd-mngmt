@@ -26,6 +26,8 @@
 	//////////////////////////////////////////////////////
 	 -->
 
+
+
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -63,6 +65,11 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
+
+        <style>
+            html{scroll-behavior:smooth}
+        </style>
 
 	</head>
 	<body>
@@ -116,7 +123,7 @@
 							<h1>{{ __('Stefan + Eli') }}</h1>
 							<h2>{{ __('Wir Heiraten') }}</h2>
 							<div class="simply-countdown simply-countdown-one"></div>
-							<p><a href="#" class="btn btn-default btn-sm">{{ __('Wichtiger Link') }}</a></p>
+							<p><a href="#attending" class="btn btn-default btn-sm">{{ __('Zusagen') }}</a></p>
 						</div>
 					</div>
 				</div>
@@ -163,27 +170,81 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<span>{{ __('Wichtige Termine') }}</span>
-					<h2>{{ __('Hochzeitsveranstaltungen') }}</h2>
+					<h2>{{ __('Veranstaltungen') }}</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="display-t">
 					<div class="display-tc">
 						<div class="col-md-10 col-md-offset-1">
+                            <div class="col-md-6 col-sm-6 text-center">
+                                <div class="event-wrap animate-box">
+                                    <h3>{{ __('Stadtführung') }}</h3>
+                                    <div class="event-col">
+                                        <i class="icon-clock"></i>
+                                        {{--
+                                        <span>{{ __('14:00 Uhr') }}</span>
+                                        <span>{{ __('15:30 Uhr'
+                                        --}}
+                                        <span>{{ __('14:00 Uhr - 15:30 Uhr') }}</span>
+                                    </div>
+                                    <div class="event-col">
+                                        <i class="icon-calendar"></i>
+                                        {{--
+                                        <span>{{ __('Freitag 22.') }}</span>
+                                        <span>{{ __('Juli 2022') }}</span>
+                                        --}}
+                                        <span>{{ __('Freitag, 22.07.') }}</span>
+                                    </div>
+                                    {{--
+                                    <p>{{ __('Weitere Informationen') }}</p>
+                                    --}}
+                                    <span>{{ __('Weitere Informationen') }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 text-center">
+                                <div class="event-wrap animate-box">
+                                    <h3>{{ __('Tanzkurs') }}</h3>
+                                    <div class="event-col">
+                                        <i class="icon-clock"></i>
+                                        {{--
+                                         <span>{{ __('16:00 Uhr') }}</span>
+                                        <span>{{ __('17:30 Uhr') }}</span>
+                                        --}}
+                                        <span>{{ __('16:00 Uhr - 17:30 Uhr') }}</span>
+                                    </div>
+                                    <div class="event-col">
+                                        <i class="icon-calendar"></i>
+                                        {{--
+                                        <span>{{ __('Freitag 22.') }}</span>
+                                        <span>{{ __('Juli 2022') }}</span>
+                                        --}}
+                                        <span>{{ __('Freitag, 22.07.') }}</span>
+                                    </div>
+                                    <span>{{ __('Weitere Informationen') }}</span>
+                                </div>
+                            </div>
+                            <br><br><br><br><br><br><br><br><br><br>
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
 									<h3>{{ __('Hochzeitszeremonie') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-										<span>{{ __('17:00 Uhr') }}</span>
+                                        {{--
+                                        <span>{{ __('17:00 Uhr') }}</span>
 										<span>{{ __('17:45 Uhr') }}</span>
+                                        --}}
+										<span>{{ __('17:00 Uhr - 17:45 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
+                                        {{--
 										<span>{{ __('Samstag 23.') }}</span>
 										<span>{{ __('Juli, 2022') }}</span>
+                                        --}}
+										<span>{{ __('Samstag, 23.07.') }}</span>
 									</div>
-									<p>{{ __('Weitere Informationen') }}</p>
+                                    <span>{{ __('Weitere Informationen') }}</span>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 text-center">
@@ -191,15 +252,21 @@
 									<h3>{{ __('Hochzeitsfeier') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
+                                        {{--
 										<span>{{ __('18:00 Uhr') }}</span>
 										<span>{{ __('??:?? Uhr') }}</span>
+                                        --}}
+										<span>{{ __('18:00 Uhr - ??:?? Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
+                                        {{--
 										<span>{{ __('Samstag 23.') }}</span>
 										<span>{{ __('Juli 2022') }}</span>
+                                        --}}
+										<span>{{ __('Samstag, 23.07.') }}</span>
 									</div>
-									<p>{{ __('Weitere Informationen') }}</p>
+									<span>{{ __('Weitere Informationen') }}</span>
 								</div>
 							</div>
 						</div>
@@ -522,14 +589,14 @@
 		</div>
 	</div>
 
-
+<div id="attending"></div>
 	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Are You Attending?</h2>
-					<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
+					<h2>Feiert mit uns!</h2>
+					<p>Meldet euch bitte bis zum 31.06. an. Danke.</p>
 				</div>
 			</div>
 			<div class="row animate-box">
@@ -548,7 +615,7 @@
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
-							<button type="submit" class="btn btn-default btn-block">I am Attending</button>
+							<button type="submit" class="btn btn-default btn-block">anmelden</button>
 						</div>
 					</form>
 				</div>
@@ -631,6 +698,8 @@
       //  day: d.getDate(),
         enableUtc: false
     });
+
+
 </script>
 
 	</body>
