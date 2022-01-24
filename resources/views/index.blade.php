@@ -599,27 +599,43 @@
 					<p>Meldet euch bitte bis zum 31.06. an. Danke.</p>
 				</div>
 			</div>
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1">
-					<form class="form-inline">
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="name" class="sr-only">Name</label>
-								<input type="name" class="form-control" id="name" placeholder="Name">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<button type="submit" class="btn btn-default btn-block">anmelden</button>
-						</div>
-					</form>
-				</div>
-			</div>
+            <div class="row animate-box">
+                <div class="col-md-10 col-md-offset-1">
+                    <form class="form-inline" method="POST" action={{route("register1")}}>
+                        @csrf
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="adults" class="sr-only"></label>
+                                <select class="form-control" name="adults" id="adults">
+                                    <option style="display: none">Erwachsene</option>
+                                    <option style="color: grey" value="1">1 Erwachsenen</option>
+                                    <option style="color: grey" value="2">2 Erwachsene</option>
+                                    <option style="color: grey" value="3">3 Erwachsene</option>
+                                    <option style="color: grey" value="4">4 Erwachsene</option>
+                                    <option style="color: grey" value="5">5 Erwachsene</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="children" class="sr-only"></label>
+                                <select class="form-control" name="children" id="children">
+                                    <option style="display: none">Kinder</option>
+                                    <option style="color: grey" value="0">keine Kinder</option>
+                                    <option style="color: grey" value="1">1 Kind</option>
+                                    <option style="color: grey" value="2">2 Kinder</option>
+                                    <option style="color: grey" value="3">3 Kinder</option>
+                                    <option style="color: grey" value="4">4 Kinder</option>
+                                    <option style="color: grey" value="5">5 Kinder</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <button type="submit" class="btn btn-default btn-block">anmelden</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 		</div>
 	</div>
 
@@ -642,7 +658,6 @@
 					</p>
 				</div>
 			</div>
-
 		</div>
 	</footer>
 	</div>
