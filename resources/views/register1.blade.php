@@ -84,8 +84,8 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Feiert mit uns!</h2>
-					<p>Meldet euch bitte bis zum 31.06. an. Danke.</p>
+					<h2>Hier kannst du alle Gäste eintragen.</h2>
+					<p>Wir benötigen mindestens eine E-Mail, unter der wir eure Gruppe erreichen können.</p>
 				</div>
 			</div>
 			<div class="row animate-box">
@@ -93,69 +93,103 @@
                     <form class="form-inline" method="POST" action={{route("createVisitor")}}>
                         @csrf
                         @for($i=1; $i <= $adults; $i++)
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="number" class="sr-only"></label>
-                                    <input type="number" class="form-control" id="number" style="background: #F14E95; color: white" disabled placeholder="{{$i}}. Erwachsene">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        {{$i}}. Erwachsene
+                                    </div>
                                 </div>
-                            </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="first_name" class="sr-only"></label>
-                                    <input type="first_name" name="adult[{{$i}}][first_name]" class="form-control" id="name" placeholder="Vorname">
+                                    <input type="text" name="adult[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="last_name" class="sr-only"></label>
-                                    <input type="last_name" name="adult[{{$i}}][last_name]" class="form-control" id="name" placeholder="Nachname">
+                                    <input type="text" name="adult[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
                                 </div>
                             </div>
-                        @endfor
-                        <div>&nbsp</div>
-                        @for($i=1; $i <= $children; $i++)
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
-                                        <label for="number" class="sr-only"></label>
-                                        <input type="number" class="form-control" id="number" style="background: #F14E95; color: white" disabled placeholder="{{$i}}. Kind">
+                                    </div>
+                                </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="email" class="sr-only">Email</label>
+                                    @if($i==1)
+                                    <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
+                                    @else
+                                        <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="phone" class="sr-only">Telefon</label>
+                                    <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" placeholder="Telefon">
+                                </div>
+                            </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="password" class="sr-only">Password</label>
+                                        @if($i==1)
+                                            <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
+                                        @else
+                                            <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" placeholder="Passwort">
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="password" class="sr-only">Password</label>
+                                        @if($i==1)
+                                            <input type="password" name="adult[{{$i}}][password_wdh]" class="form-control" id="password" required placeholder="Wiederholung Passwort*">
+                                        @else
+                                            <input type="password" name="adult[{{$i}}][password_wdh]" class="form-control" id="password" placeholder="Wiederholung Passwort">
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div>&nbsp</div>
+                        @endfor
+                        @for($i=1; $i <= $children; $i++)
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        {{$i}}. Kind
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="first_name" class="sr-only"></label>
-                                        <input type="first_name" name="child[{{$i}}][first_name]" class="form-control" id="name" placeholder="Vorname">
+                                        <input type="text" name="child[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
-                                        <label for="last_name" class="sr-only"></label>
-                                        <input type="last_name" name="child[{{$i}}][last_name]" class="form-control" id="name" placeholder="Nachname">
+                                        <label for="text" class="sr-only"></label>
+                                        <input type="text" name="child[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
                                     </div>
                                 </div>
+                            </div>
+                            <div>&nbsp</div>
                         @endfor
-                            <div>&nbsp</div>
-						<div class="col-md-4 col-sm-4">
-                            <div class="form-group">
-                                <label for="contact" class="sr-only"></label>
-                                <input type="contact" class="form-control" id="number" style="background: #F14E95; color: white" disabled placeholder="Kontakt">
-                            </div>
-                        </div>
+                        <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                    *Pflichtfelder
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="phone" class="sr-only">Email</label>
-                                    <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefon">
-                                </div>
-                            </div>
-                            <div>&nbsp</div>
                             <div class="col-md-4 col-sm-4" style="float: right">
 							<button type="submit" class="btn btn-default btn-block">anmelden</button>
 						</div>
+                </div>
 					</form>
 				</div>
 			</div>
