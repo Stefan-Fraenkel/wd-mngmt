@@ -79,115 +79,115 @@
 	<div id="page">
 
 <div id="attending"></div>
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
+	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_3.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hier kannst du alle Gäste eintragen.</h2>
-					<p>Wir benötigen mindestens eine E-Mail, unter der wir eure Gruppe erreichen können.</p>
+					<h2>Hier kannst du ein Zimmer für deine Gruppe buchen.</h2>
+					<p>Mehr Informationen findest du auch auf Englisch auf der Seite des Hotels.</p>
 				</div>
 			</div>
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
-                    <form class="form-inline" method="POST" action={{route("createVisitor")}}>
+                    <form class="form-inline" method="POST" action={{route("updateVisitor")}}>
                         @csrf
-                        @for($i=1; $i <= $adults; $i++)
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        {{$i}}. Erwachsene
-                                    </div>
-                                </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="first_name" class="sr-only"></label>
-                                    <input type="text" name="adult[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="last_name" class="sr-only"></label>
-                                    <input type="text" name="adult[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
-                                </div>
-                            </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                    </div>
-                                </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
-                                    @if($i==1)
-                                    <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
-                                    @else
-                                        <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="phone" class="sr-only">Telefon</label>
-                                    <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" placeholder="Telefon">
-                                </div>
-                            </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="password" class="sr-only">Password</label>
-                                        @if($i==1)
-                                            <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
-                                        @else
-                                            <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" placeholder="Passwort">
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="password" class="sr-only">Password</label>
-                                        @if($i==1)
-                                            <input type="password" name="adult[{{$i}}][password_wdh]" class="form-control" id="password" required placeholder="Wiederholung Passwort*">
-                                        @else
-                                            <input type="password" name="adult[{{$i}}][password_wdh]" class="form-control" id="password" placeholder="Wiederholung Passwort">
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div>&nbsp</div>
-                        @endfor
-                        @for($i=1; $i <= $children; $i++)
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        {{$i}}. Kind
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="first_name" class="sr-only"></label>
-                                        <input type="text" name="child[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="text" class="sr-only"></label>
-                                        <input type="text" name="child[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>&nbsp</div>
-                        @endfor
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                    *Pflichtfelder
+                                    Benötigt ihr ein Hotelzimmer?
                                 </div>
                             </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group form-control">
+                                    <input class="form-check-input" type="radio" name="dinner" id="inlineRadio1" value="yes">
+                                    <label class="form-check-label" for="inlineRadio1">Ja</label>
+                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                    <input class="form-check-input" type="radio" name="dinner" id="inlineRadio2" style="text-align: right;" value="no">
+                                    <label class="form-check-label" for="inlineRadio2">Nein</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>&nbsp</div>
+                        @foreach($group as $members)
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        {{$members->first_name}}
+                                    </div>
+                                    <input type="hidden" name="members[{{$members->id}}][id]" value="{{$members->id}}">
+
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="dinner" class="sr-only"></label>
+                                        <select class="form-control" name="members[{{$members->id}}][dinner]" id="dinner{{$members->id}}" required>
+                                            <option style="display: none" value="">Essen</option>
+                                            <option style="color: grey" value="meat">Fleisch</option>
+                                            <option style="color: grey" value="fish">Fisch</option>
+                                            <option style="color: grey" value="vegetarian">Vegetarisch</option>
+                                            <option style="color: grey" value="vegan">Vegan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="covid" class="sr-only"></label>
+                                        <select class="form-control" name="members[{{$members->id}}][covid]" id="covid{{$members->id}}" required>
+                                            <option style="display: none" value="">Corona Impfstatus</option>
+                                            <option style="color: grey" value="none">keine Impfung</option>
+                                            <option style="color: grey" value="first">1. Impfung</option>
+                                            <option style="color: grey" value="second">2. Impfung</option>
+                                            <option style="color: grey" value="third">3. Impfung</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        Tanzkurs?
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group form-control">
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}1" value="1">
+                                        <label class="form-check-label" for="dancing{{$members->id}}1">Ja</label>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}2" value="0">
+                                        <label class="form-check-label" for="dancing{{$members->id}}2">Nein</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        Stadtführung?
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group form-control">
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}1" value="1">
+                                        <label class="form-check-label" for="sightseeing{{$members->id}}1">Ja</label>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}2" style="text-align: right;" value="0">
+                                        <label class="form-check-label" for="sightseeing{{$members->id}}2">Nein</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>&nbsp</div>
+                        @endforeach
+                        <div class="row">
                             <div class="col-md-4 col-sm-4" style="float: right">
-							<button type="submit" class="btn btn-default btn-block">anmelden</button>
+							<button type="submit" class="btn btn-default btn-block">absenden</button>
 						</div>
                 </div>
 					</form>
