@@ -23,8 +23,11 @@ Route::get('/master', function () {
     return view('wd-master');
 });
 
-Route::post('/register1', [WdController::class, 'register1'])->name('register1');
-Route::post('/register', [WdController::class, 'createVisitor'])->name('createVisitor');
+Route::post('/attend', [WdController::class, 'attend'])->name('attend');
+Route::post('/create', [WdController::class, 'createGuest'])->name('createGuest');
+Route::get('/booking', [WdController::class, 'bookRoom'])->name('bookRoom');
+Route::match(['get', 'post'],'/update', [WdController::class, 'updateGuest'])->name('updateGuest');
+
 
 
 Route::get('/test', [WdController::class, 'test']);
