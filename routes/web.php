@@ -25,12 +25,33 @@ Route::get('/master', function () {
 
 Route::post('/attend', [WdController::class, 'attend'])->name('attend');
 Route::post('/create', [WdController::class, 'createGuest'])->name('createGuest');
-Route::get('/booking', [WdController::class, 'bookRoom'])->name('bookRoom');
 Route::match(['get', 'post'],'/update', [WdController::class, 'updateGuest'])->name('updateGuest');
+Route::match(['get', 'post'],'/booking', [WdController::class, 'bookRoom'])->name('bookRoom');
+Route::get('/profile', [WdController::class, 'showProfile'])->name('showProfile');
 
 
 
-Route::get('/test', [WdController::class, 'test']);
+Route::get('/travel-info', function () {
+    return view('travel-info');
+});
+
+Route::get('/transfer-info', function () {
+    return view('transfer-info');
+});
+
+Route::get('/bg-info', function () {
+    return view('bg-info');
+});
+
+Route::get('/region-info', function () {
+    return view('region-info');
+});
+
+Route::get('/country-info', function () {
+    return view('country-info');
+});
+
+//Route::get('/test', [WdController::class, 'test']);
 
 
 Route::get('/{locale?}', function ($locale = null) {
