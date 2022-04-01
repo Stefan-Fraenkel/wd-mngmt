@@ -84,8 +84,8 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hier kannst du alle Gäste eintragen.</h2>
-					<p>Wir benötigen mindestens eine E-Mail und eine Telefonnummer, unter der wir eure Gruppe erreichen können.</p>
+					<h2>{{ __('Hier kannst du alle Gäste eintragen.')}}</h2>
+					<p>{{ __('Wir benötigen mindestens eine E-Mail und eine Telefonnummer, unter der wir euch erreichen können.')}}</p>
 				</div>
 			</div>
 			<div class="row animate-box">
@@ -96,7 +96,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        {{$i}}. Erwachsene
+                                        {{$i}}. {{ __('Erwachsene')}}
                                     </div>
                                 </div>
                             <div class="col-md-4 col-sm-4">
@@ -117,7 +117,7 @@
                                 </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
+                                    <label for="email" class="sr-only">{{ __('Email')}}</label>
                                     @if($i==1)
                                     <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
                                     @else
@@ -127,9 +127,9 @@
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
-                                    <label for="phone" class="sr-only">Telefon</label>
+                                    <label for="phone" class="sr-only">{{ __('Telefon')}}</label>
                                     @if($i==1)
-                                        <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" required placeholder="Telefon">
+                                        <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" required placeholder="Telefon*">
                                     @else
                                         <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" placeholder="Telefon">
                                     @endif
@@ -141,21 +141,11 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
-                                        <label for="password" class="sr-only">Password</label>
+                                        <label for="password" class="sr-only">{{ __('Passwort')}}</label>
                                         @if($i==1)
                                             <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
                                         @else
                                             <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" placeholder="Passwort">
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="password" class="sr-only">Password</label>
-                                        @if($i==1)
-                                            <input type="password" name="adult[{{$i}}][password_wdh]" class="form-control" id="password" required placeholder="Wiederholung Passwort*">
-                                        @else
-                                            <input type="password" name="adult[{{$i}}][password_wdh]" class="form-control" id="password" placeholder="Wiederholung Passwort">
                                         @endif
                                     </div>
                                 </div>
@@ -166,7 +156,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        {{$i}}. Kind
+                                        {{$i}}. {{ __('Kind')}}
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
@@ -186,12 +176,12 @@
                         @endfor
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                    *Pflichtfelder
+                                <div class="form-group center" style="background:white; color: #F14E95; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                    *{{ __('Pflichtfelder')}}
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4" style="float: right">
-							<button type="submit" class="btn btn-default btn-block">anmelden</button>
+							<button type="submit" class="btn btn-default btn-block">{{ __('weiter')}}</button>
 						</div>
                 </div>
 					</form>

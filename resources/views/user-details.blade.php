@@ -79,50 +79,51 @@
 	<div id="page">
 
 <div id="attending"></div>
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_3.jpg);">
+	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_hands.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hier kannst du deine Präferenzen angeben.</h2>
-					<p>Wir bieten diverse Möglichkeiten an.</p>
+					<h2> {{ __('Programm und Menu') }}</h2>
 				</div>
 			</div>
+            <div class="row animate-box"style="padding-bottom: 1%;">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 text-center fh5co-heading" style="padding-left: 3%; padding-right: 3%;">
+                        <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
+                            <p style="color: white; padding-bottom: 1%;">
+                                <br>
+                                {{ __('Für den Vortag der Hochzeitsfeier haben wir eine Stadtführung und einen Tanzkurs organisiert.') }} <br>
+                                {{ __('Beim Tanzkurs lernt ihr einen bulgarischen Reihentanz, den wir am Samstag tanzen wollen.') }} <br>
+                                {{ __('Die Stadtführung stellt Elis Heimatstadt Blagoewgrad vor.') }} <br>
+                                {{ __('Für die Feier könnt ihr zwischen verschiedenen Menus wählen.') }} <br>
+                                {{ __('Wo ihr mitmachen wollt und was ihr essen mögt, könnt ihr uns hier mitteilen.') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
                     <form class="form-inline" method="POST" action={{route("updateGuest")}}>
                         @csrf
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                    Benötigt ihr ein Hotelzimmer?
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group form-control">
-                                    <input class="form-check-input" type="radio" name="dinner" id="inlineRadio1" value="yes">
-                                    <label class="form-check-label" for="inlineRadio1">Ja</label>
-                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                    <input class="form-check-input" type="radio" name="dinner" id="inlineRadio2" style="text-align: right;" value="no">
-                                    <label class="form-check-label" for="inlineRadio2">Nein</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>&nbsp</div>
                         @foreach($group as $members)
+                            <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                {{$members->first_name}}
+                            </div>
+                        <div style="padding-left: 2%; padding-right: 2%;">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        {{$members->first_name}}
+                                    <div class="form-group center" style="background: white; color: #F14E95; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        Allgemein
                                     </div>
-                                    <input type="hidden" name="members[{{$members->id}}][id]" value="{{$members->id}}">
-
                                 </div>
+                                <input type="hidden" name="members[{{$members->id}}][id]" value="{{$members->id}}">
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="dinner" class="sr-only"></label>
                                         <select class="form-control" name="members[{{$members->id}}][dinner]" id="dinner{{$members->id}}" required>
-                                            <option style="display: none" value="">Essen</option>
+                                            <option style="display: none" value="">Menu</option>
                                             <option style="color: grey" value="beef">Rind</option>
                                             <option style="color: grey" value="chicken">Hühnchen</option>
                                             <option style="color: grey" value="fish">Fisch</option>
@@ -145,51 +146,59 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
+                                    <div class="form-group center" style="background: white; color: #F14E95; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        {{ __('Tanzkurs') }}
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        Tanzkurs?
+                                <div class="col-md-2 col-sm-4">
+                                    <div class="form-group form-control" style="height: 54px; line-height: 34px; text-align: center;">
+                                        {{ __('Ja') }}
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}1" value="1" required>
+                                        <label class="form-check-label" for="dancing{{$members->id}}1"></label>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-control">
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}1" value="1">
-                                        <label class="form-check-label" for="dancing{{$members->id}}1">Ja</label>
-                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}2" value="0">
-                                        <label class="form-check-label" for="dancing{{$members->id}}2">Nein</label>
+                                <div class="col-md-2 col-sm-4">
+                                    <div class="form-group form-control" style="height: 54px; line-height: 34px; text-align: center;">
+                                        {{ __('Nein')}}
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}2" value="0" required>
+                                        <label class="form-check-label" for="dancing{{$members->id}}2"></label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
+                                    <div class="form-group center" style="background: white; color: #F14E95; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                        {{ __('Stadtführung') }}
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        Stadtführung?
+                                <div class="col-md-2 col-sm-4">
+                                    <div class="form-group form-control" style="height: 54px; line-height: 34px; text-align: center;">
+                                        {{ __('Ja') }}
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}1" value="1" required>
+                                        <label class="form-check-label" for="sightseeing{{$members->id}}1"></label>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-control">
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}1" value="1">
-                                        <label class="form-check-label" for="sightseeing{{$members->id}}1">Ja</label>
-                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}2" style="text-align: right;" value="0">
-                                        <label class="form-check-label" for="sightseeing{{$members->id}}2">Nein</label>
+                                <div class="col-md-2 col-sm-4">
+                                    <div class="form-group form-control" style="height: 54px; line-height: 34px; text-align: center;">
+                                        {{ __('Nein') }}
+                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}2" value="0" required>
+                                        <label class="form-check-label" for="sightseeing{{$members->id}}2"></label>
                                     </div>
                                 </div>
                             </div>
-                            <div>&nbsp</div>
+                        </div>
+                            <div>&nbsp<br></div>
                         @endforeach
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4" style="float: right">
-							<button type="submit" class="btn btn-default btn-block">absenden</button>
-						</div>
-                </div>
+                        <div style="padding-left: 2%; padding-right: 2%;">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4" style="float: left">
+                                    <a href="/profile"  class="btn btn-default btn-block" style="background: white; color: #F14E95; height: 54px; line-height: 40px; text-align: center;">{{ __('später entscheiden') }}</a>
+                                </div>
+                                <div class="col-md-4 col-sm-4" style="float: right">
+                                    <button type="submit" class="btn btn-default btn-block">{{ __('weiter') }}</button>
+                                </div>
+                            </div>
+                        </div>
 					</form>
 				</div>
 			</div>

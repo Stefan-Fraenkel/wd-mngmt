@@ -84,113 +84,103 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hier kannst du ein Zimmer für deine Gruppe buchen.</h2>
-					<p>Mehr Informationen findest du auch auf Englisch auf der Seite des Hotels.</p>
+					<h2>{{ __('Hotelzimmer')}}</h2>
 				</div>
 			</div>
+            <div class="row animate-box">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 text-center fh5co-heading" style="padding-left: 3%; padding-right: 3%;">
+                        <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
+                            <p style="color: white; padding-bottom: 1%;">
+                                <br>
+                                {{ __('Falls ihr in dem Hotel übernachten wollt, in dem auch die Feier stattfindet, könnt ihr dies hier anmelden.')}}<br>
+                                {{ __('Wir haben für euch spezielle Konditionen ausgehandelt, die unter den regulären Preisen liegen.')}}<br>
+                                {{ __('Sie gelten auch, wenn ihr direkt vor oder nach der Hochzeitsfeier noch weitere Tage dort verbringen wollt.')}}<br>
+                                {{ __('Bei den Preisen ist außerdem ein Frühstück und der Zugang zum Spa-Bereich inklusive sowie ein Stellplatz für ein Auto.')}}<br>
+                                {{ __('Mehr Informationen findet ihr auf der ')}} <a style="color: white;" href="https://hotel-orbita.bg/en/" target="_blank"><u>{{ __('offiziellen Seite des Hotels')}}</u></a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row animate-box" style="padding-bottom: 1%;">
+                <div class="row" style="display: flex; justify-content: center; padding-bottom: 20px">
+                    <div style="display: flex; justify-content: center">
+                        <a href="/profile"  class="btn btn-default btn-block" style="background: white; color: #F14E95; height: 54px; line-height: 38px; text-align: center;">{{ __('Ich benötige kein Hotelzimmer')}}</a>
+                    </div>
+                </div>
+            </div>
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
-                    <form class="form-inline" method="POST" action={{route("updateVisitor")}}>
+                    <div class="row" style="padding-left: 2%; padding-right: 2%;">
+                        <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
+                            {{ __('Preis pro Zimmer:')}}<br><br>
+                            {{ __('1 Person: 89 lv (ca. 45€) / Nacht')}}<br>
+                            {{ __('ab 2 Personen 99 lv (ca. 50€) / Nacht')}}<br><br>
+                            {{ __('Die größten Zimmer bieten Platz für bis zu 4 Erwachsene mit 2 Kinder.')}}<br>
+                            {{ __('Auf die Auswahl des genauen Zimmers haben wir keinen Einfluss.')}}<br>
+                        </div>
+                    </div>
+                    <form class="form-inline" id="booking" method="POST" action={{route("bookRoom")}}>
                         @csrf
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
+                        <div class="row" style="padding-left: 2%; padding-right: 2%;">
                                 <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                    Benötigt ihr ein Hotelzimmer?
+                                    {{ __('Für wen soll gebucht werden?')}}
                                 </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group form-control">
-                                    <input class="form-check-input" type="radio" name="dinner" id="inlineRadio1" value="yes">
-                                    <label class="form-check-label" for="inlineRadio1">Ja</label>
-                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                    <input class="form-check-input" type="radio" name="dinner" id="inlineRadio2" style="text-align: right;" value="no">
-                                    <label class="form-check-label" for="inlineRadio2">Nein</label>
-                                </div>
+                            <div class="row">
+                            @foreach($group as $members)
+                                @if($members->adult == 1)
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="form-group form-control adults" style="height: 54px; line-height: 35px; text-align: center;">
+                                                {{$members->first_name}}&nbsp&nbsp<input type="checkbox" name="guests[]" value="{{$members->id}}" required checked>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="form-group form-control children" style="height: 54px; line-height: 35px; text-align: center;">
+                                                {{$members->first_name}}&nbsp&nbsp<input type="checkbox" name="guests[]" value="{{$members->id}}" checked>
+                                            </div>
+                                        </div>
+                                    @endif
+                            @endforeach
                             </div>
                         </div>
-                        <div>&nbsp</div>
-                        @foreach($group as $members)
+                        <div><br></div>
+                        <div class="row"  style="padding-left: 2%; padding-right: 2%;">
+                            <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                {{ __('Aufenthalt')}}
+                            </div>
                             <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        {{$members->first_name}}
-                                    </div>
-                                    <input type="hidden" name="members[{{$members->id}}][id]" value="{{$members->id}}">
-
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="dinner" class="sr-only"></label>
-                                        <select class="form-control" name="members[{{$members->id}}][dinner]" id="dinner{{$members->id}}" required>
-                                            <option style="display: none" value="">Essen</option>
-                                            <option style="color: grey" value="meat">Fleisch</option>
-                                            <option style="color: grey" value="fish">Fisch</option>
-                                            <option style="color: grey" value="vegetarian">Vegetarisch</option>
-                                            <option style="color: grey" value="vegan">Vegan</option>
-                                        </select>
+                                <div class="col-md-6 col-sm-4">
+                                    <div class="form-group form-control" style="height: 54px; line-height: 28px; text-align: center;">
+                                        <label for="arrival">{{ __('Anreise')}}:&nbsp&nbsp</label>
+                                        <input type="date" style="color: grey" id="arrival" name="arrival" required>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="covid" class="sr-only"></label>
-                                        <select class="form-control" name="members[{{$members->id}}][covid]" id="covid{{$members->id}}" required>
-                                            <option style="display: none" value="">Corona Impfstatus</option>
-                                            <option style="color: grey" value="none">keine Impfung</option>
-                                            <option style="color: grey" value="first">1. Impfung</option>
-                                            <option style="color: grey" value="second">2. Impfung</option>
-                                            <option style="color: grey" value="third">3. Impfung</option>
-                                        </select>
+                                <div class="col-md-6 col-sm-4">
+                                    <div class="form-group form-control" style="height: 54px; line-height: 28px; text-align: center;">
+                                        <label for="departure">{{ __('Abreise')}}:&nbsp&nbsp</label>
+                                        <input type="date" style="color: grey" id="departure" name="departure" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                    </div>
+                            <div><br></div>
+                            <div class="row" style="padding-left: 2%; padding-right: 2%;">
+                                <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
+                                    {{ __('Kommentar zur Buchung')}}
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        Tanzkurs?
-                                    </div>
+                                <textarea class="form-group center form-control" name="comment" placeholder="{{ __('Schreibe hier einen Kommentar')}}"></textarea>
+                                <div>
+                                    <br>
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-control">
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}1" value="1">
-                                        <label class="form-check-label" for="dancing{{$members->id}}1">Ja</label>
-                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][dancing]" id="dancing{{$members->id}}2" value="0">
-                                        <label class="form-check-label" for="dancing{{$members->id}}2">Nein</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        Stadtführung?
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="form-group form-control">
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}1" value="1">
-                                        <label class="form-check-label" for="sightseeing{{$members->id}}1">Ja</label>
-                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                        <input class="form-check-input" type="radio" name="members[{{$members->id}}][sightseeing]" id="sightseeing{{$members->id}}2" style="text-align: right;" value="0">
-                                        <label class="form-check-label" for="sightseeing{{$members->id}}2">Nein</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>&nbsp</div>
-                        @endforeach
                         <div class="row">
                             <div class="col-md-4 col-sm-4" style="float: right">
-							<button type="submit" class="btn btn-default btn-block">absenden</button>
-						</div>
-                </div>
-					</form>
+                                <button type="submit" class="btn btn-default btn-block">{{ __('buchen')}}</button>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                    </form>
 				</div>
 			</div>
 		</div>
@@ -200,6 +190,9 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
+
+
+
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -220,37 +213,21 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
 
-	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-	<script src="js/simplyCountdown.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	<script>
-    var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
-
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: 2022, // required
-        month: 7, // required
-        day: 23, // required
-       // year: d.getFullYear(),
-      //  month: d.getMonth() + 1,
-      //  day: d.getDate()
-    });
-
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: 2022, // required
-        month: 7, // required
-        day: 23, // required
-       // year: d.getFullYear(),
-      //  month: d.getMonth() + 1,
-      //  day: d.getDate(),
-        enableUtc: false
-    });
-
-
-</script>
+    <script>
+        $(function(){
+            var requiredCheckboxes = $('.adults :checkbox[required]');
+            requiredCheckboxes.change(function(){
+                if(requiredCheckboxes.is(':checked')) {
+                    requiredCheckboxes.removeAttr('required');
+                } else {
+                    requiredCheckboxes.attr('required', 'required');
+                }
+            });
+        });
+    </script>
 
 	</body>
 </html>

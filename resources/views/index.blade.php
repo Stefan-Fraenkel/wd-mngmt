@@ -105,7 +105,11 @@
 								<li><a href="#">{{ __('G4') }}</a></li>
 							</ul>
 						</li>
-						<li><a href="contact.html">{{ __('Kontakt') }}</a></li>
+                        @auth
+						<li><a href="/profile">{{ __('Mein Profil') }}</a></li>
+                        @else
+                            <li><a href="/profile">{{ __('Anmelden') }}</a></li>
+                        @endauth
 					</ul>
 				</div>
 			</div>
@@ -123,6 +127,7 @@
 							<h1>{{ __('Stefan + Eli') }}</h1>
 							<h2>{{ __('Wir Heiraten') }}</h2>
 							<div class="simply-countdown simply-countdown-one"></div>
+                            <br>
 							<p><a href="#attending" class="btn btn-default btn-sm">{{ __('Zusagen') }}</a></p>
 						</div>
 					</div>
@@ -147,7 +152,7 @@
 					</div>
 					<div class="desc-groom">
 						<h3>{{ __('Stefan Fränkel') }}</h3>
-						<p>{{ __('Ein Text') }}</p>
+						<p>{{ __('Der Bräutigam') }}</p>
 					</div>
 				</div>
 				<p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -157,14 +162,126 @@
 					</div>
 					<div class="desc-bride">
 						<h3>{{ __('Elitsa Stambolova') }}</h3>
-						<p>{{ __('Ein text') }}</p>
+						<p>{{ __('Die Braut') }}</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/img_bg_3.jpg);">
+        <div id="attending"></div>
+        <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row animate-box">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                        <h2>{{ __('Feiert mit uns!')}}</h2>
+                        <p>{{ __('Meldet euch bitte bis zum 30.04. an. Danke.')}}</p>
+                    </div>
+                </div>
+                <div class="row animate-box">
+                    <div class="col-md-10 col-md-offset-1">
+                        <form class="form-inline" method="POST" action={{route("attend")}}>
+                            @csrf
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="adults" class="sr-only"></label>
+                                    <select class="form-control" name="adults" id="adults">
+                                        <option style="display: none" value="">Erwachsene</option>
+                                        <option style="color: grey" value="1">1 Erwachsenen</option>
+                                        <option style="color: grey" value="2">2 Erwachsene</option>
+                                        <option style="color: grey" value="3">3 Erwachsene</option>
+                                        <option style="color: grey" value="4">4 Erwachsene</option>
+                                        <option style="color: grey" value="5">5 Erwachsene</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="children" class="sr-only"></label>
+                                    <select class="form-control" name="children" id="children">
+                                        <option style="display: none" value="">Kinder</option>
+                                        <option style="color: grey" value="0">keine Kinder</option>
+                                        <option style="color: grey" value="1">1 Kind</option>
+                                        <option style="color: grey" value="2">2 Kinder</option>
+                                        <option style="color: grey" value="3">3 Kinder</option>
+                                        <option style="color: grey" value="4">4 Kinder</option>
+                                        <option style="color: grey" value="5">5 Kinder</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <button type="submit" class="btn btn-default btn-block">{{ __('anmelden')}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row animate-box">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                        <h2>{{ __('Schon angemeldet?') }}</h2>
+                        <p>{{ __('Hier kannst du alles weitere erledigen.') }}</p>
+                        <p><a href="/profile" class="btn btn-default btn-sm" style="height: 54px; line-height: 38px;">{{ __('Profil') }}</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-couple-story">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                        <span>{{ __('Wir sind verliebt') }}</span>
+                        <h2>{{ __('Unsere Geschichte') }}</h2>
+                        <p>{{ __('Politikwissenschaft ist in Bamberg sehr romantisch.') }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0">
+                        <ul class="timeline animate-box">
+                            <li class="animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/meet.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">{{ __('Das erste Treffen') }}</h3>
+                                        <span class="date">{{ __('14. Oktober, 2008') }}</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>{{ __('Kennengelernt haben wir uns auf einer Erstsemester Party. Eli hatte gerade angefangen, zu studieren. Zufällig hat der Veranstalter damals ein Foto von uns aufgenommen.') }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/date.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">{{ __('Das erste Date') }}</h3>
+                                        <span class="date">{{ __('20. Oktober, 2008') }}</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>{{ __('Dachte Stefan zumindest. Eli wollte sich eigentlich nur das Schwimmen beibringen lassen. Zum Glück klappt das nicht an einem Tag.') }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/couple.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">{{ __('In einer Beziehung') }}</h3>
+                                        <span class="date">{{ __('26. Oktober, 2008') }}</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>{{ __('Nach einigem Tumult haben wir uns in die Arme geschlossen und seit dem nicht wieder losgelassen.') }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/img_bg_3.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -186,7 +303,7 @@
                                         <span>{{ __('14:00 Uhr') }}</span>
                                         <span>{{ __('15:30 Uhr'
                                         --}}
-                                        <span>{{ __('14:00 Uhr - 15:30 Uhr') }}</span>
+                                        <span>{{ __('14:00 - 15:30 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
@@ -198,8 +315,8 @@
                                     </div>
                                     {{--
                                     <p>{{ __('Weitere Informationen') }}</p>
-                                    --}}
-                                    <span>{{ __('Weitere Informationen') }}</span>
+
+                                    <span>{{ __('Weitere Informationen') }}</span>--}}
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6 text-center">
@@ -211,7 +328,7 @@
                                          <span>{{ __('16:00 Uhr') }}</span>
                                         <span>{{ __('17:30 Uhr') }}</span>
                                         --}}
-                                        <span>{{ __('16:00 Uhr - 17:30 Uhr') }}</span>
+                                        <span>{{ __('16:00 - 17:30 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
@@ -221,7 +338,7 @@
                                         --}}
                                         <span>{{ __('Freitag, 22.07.') }}</span>
                                     </div>
-                                    <span>{{ __('Weitere Informationen') }}</span>
+                                    {{--  <span>{{ __('Weitere Informationen') }}</span>--}}
                                 </div>
                             </div>
                             <br><br><br><br><br><br><br><br><br><br>
@@ -234,7 +351,7 @@
                                         <span>{{ __('17:00 Uhr') }}</span>
 										<span>{{ __('17:45 Uhr') }}</span>
                                         --}}
-										<span>{{ __('17:00 Uhr - 17:45 Uhr') }}</span>
+										<span>{{ __('17:00 - 17:45 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
@@ -244,7 +361,6 @@
                                         --}}
 										<span>{{ __('Samstag, 23.07.') }}</span>
 									</div>
-                                    <span>{{ __('Weitere Informationen') }}</span>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 text-center">
@@ -256,7 +372,7 @@
 										<span>{{ __('18:00 Uhr') }}</span>
 										<span>{{ __('??:?? Uhr') }}</span>
                                         --}}
-										<span>{{ __('18:00 Uhr - ??:?? Uhr') }}</span>
+										<span>{{ __('ab 18:00 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
@@ -266,400 +382,60 @@
                                         --}}
 										<span>{{ __('Samstag, 23.07.') }}</span>
 									</div>
-									<span>{{ __('Weitere Informationen') }}</span>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-couple-story">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>We Love Each Other</span>
-					<h2>Our Story</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline animate-box">
-						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/couple-1.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">First We Meet</h3>
-									<span class="date">December 25, 2015</span>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url(images/couple-2.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">First Date</h3>
-									<span class="date">December 28, 2015</span>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/couple-3.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">In A Relationship</h3>
-									<span class="date">January 1, 2016</span>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</li>
-			    	</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div id="fh5co-gallery" class="fh5co-section-gray">
+        <div id="travel"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>Our Memories</span>
-					<h2>Wedding Gallery</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<span>{{ __('Auf ins Abenteuer')}}</span>
+					<h2>{{ __('Kleiner Reiseführer')}}</h2>
+					<p>{{ __('Kleiner Reiseführer')}}</p>
 				</div>
 			</div>
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12">
 					<ul id="fh5co-gallery-list">
 
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-1.jpg); ">
-						<a href="images/gallery-1.jpg">
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/country.jpg); ">
+						<a href="/travel-info">
 							<div class="case-studies-summary">
-								<span>14 Photos</span>
-								<h2>Two Glas of Juice</h2>
+								<span>Wie komme ich da hin?</span>
+								<h2>{{ __('Reisen nach Bulgarien') }}</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-2.jpg); ">
-						<a href="#" class="color-2">
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/capitol.jpg); ">
+						<a href="/country-info" class="color-2">
 							<div class="case-studies-summary">
-								<span>30 Photos</span>
-								<h2>Timer starts now!</h2>
+								<span>Was sollte ich wissen?</span>
+								<h2>{{ __('Eine kleine Landeskunde') }}</h2>
 							</div>
 						</a>
 					</li>
-
-
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-3.jpg); ">
-						<a href="#" class="color-3">
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/city.jpg); ">
+						<a href="/bg-info" class="color-3">
 							<div class="case-studies-summary">
-								<span>90 Photos</span>
-								<h2>Beautiful sunset</h2>
+								<span>Was gibt es sonst noch?</span>
+								<h2>Besuch in Blagoevgrad</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-4.jpg); ">
-						<a href="#" class="color-4">
-							<div class="case-studies-summary">
-								<span>12 Photos</span>
-								<h2>Company's Conference Room</h2>
-							</div>
-						</a>
-					</li>
-
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-5.jpg); ">
-							<a href="#" class="color-3">
-								<div class="case-studies-summary">
-									<span>50 Photos</span>
-									<h2>Useful baskets</h2>
-								</div>
-							</a>
-						</li>
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-6.jpg); ">
-							<a href="#" class="color-4">
-								<div class="case-studies-summary">
-									<span>45 Photos</span>
-									<h2>Skater man in the road</h2>
-								</div>
-							</a>
-						</li>
-
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-7.jpg); ">
-							<a href="#" class="color-4">
-								<div class="case-studies-summary">
-									<span>35 Photos</span>
-									<h2>Two Glas of Juice</h2>
-								</div>
-							</a>
-						</li>
-
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-8.jpg); ">
-							<a href="#" class="color-5">
-								<div class="case-studies-summary">
-									<span>90 Photos</span>
-									<h2>Timer starts now!</h2>
-								</div>
-							</a>
-						</li>
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-9.jpg); ">
-							<a href="#" class="color-6">
-								<div class="case-studies-summary">
-									<span>56 Photos</span>
-									<h2>Beautiful sunset</h2>
-								</div>
-							</a>
-						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url(images/img_bg_5.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="display-t">
-					<div class="display-tc">
-						<div class="col-md-3 col-sm-6 animate-box">
-							<div class="feature-center">
-								<span class="icon">
-									<i class="icon-users"></i>
-								</span>
 
-								<span class="counter js-counter" data-from="0" data-to="500" data-speed="5000" data-refresh-interval="50">1</span>
-								<span class="counter-label">Estimated Guest</span>
-
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 animate-box">
-							<div class="feature-center">
-								<span class="icon">
-									<i class="icon-user"></i>
-								</span>
-
-								<span class="counter js-counter" data-from="0" data-to="1000" data-speed="5000" data-refresh-interval="50">1</span>
-								<span class="counter-label">We Catter</span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 animate-box">
-							<div class="feature-center">
-								<span class="icon">
-									<i class="icon-calendar"></i>
-								</span>
-								<span class="counter js-counter" data-from="0" data-to="402" data-speed="5000" data-refresh-interval="50">1</span>
-								<span class="counter-label">Events Done</span>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 animate-box">
-							<div class="feature-center">
-								<span class="icon">
-									<i class="icon-clock"></i>
-								</span>
-
-								<span class="counter js-counter" data-from="0" data-to="2345" data-speed="5000" data-refresh-interval="50">1</span>
-								<span class="counter-label">Hours Spent</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-testimonial">
-		<div class="container">
-			<div class="row">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<span>Best Wishes</span>
-						<h2>Friends Wishes</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 animate-box">
-						<div class="wrap-testimony">
-							<div class="owl-carousel-fullwidth">
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/couple-1.jpg" alt="user">
-										</figure>
-										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics"</p>
-										</blockquote>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/couple-2.jpg" alt="user">
-										</figure>
-										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, at the coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="images/couple-3.jpg" alt="user">
-										</figure>
-										<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-										<blockquote>
-											<p>"Far far away, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-services" class="fh5co-section-gray">
-		<div class="container">
-
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>We Offer Services</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-calendar"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>We Organized Events</h3>
-							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						</div>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-image"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Photoshoot</h3>
-							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						</div>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-video"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Video Editing</h3>
-							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="fh5co-video fh5co-bg" style="background-image: url(images/img_bg_3.jpg); ">
-						<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-video2"></i></a>
-						<div class="overlay"></div>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-	</div>
-
-<div id="attending"></div>
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Feiert mit uns!</h2>
-					<p>Meldet euch bitte bis zum 31.06. an. Danke.</p>
-				</div>
-			</div>
-            <div class="row animate-box">
-                <div class="col-md-10 col-md-offset-1">
-                    <form class="form-inline" method="POST" action={{route("attend")}}>
-                        @csrf
-                        <div class="col-md-4 col-sm-4">
-                            <div class="form-group">
-                                <label for="adults" class="sr-only"></label>
-                                <select class="form-control" name="adults" id="adults">
-                                    <option style="display: none">Erwachsene</option>
-                                    <option style="color: grey" value="1">1 Erwachsenen</option>
-                                    <option style="color: grey" value="2">2 Erwachsene</option>
-                                    <option style="color: grey" value="3">3 Erwachsene</option>
-                                    <option style="color: grey" value="4">4 Erwachsene</option>
-                                    <option style="color: grey" value="5">5 Erwachsene</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="form-group">
-                                <label for="children" class="sr-only"></label>
-                                <select class="form-control" name="children" id="children">
-                                    <option style="display: none">Kinder</option>
-                                    <option style="color: grey" value="0">keine Kinder</option>
-                                    <option style="color: grey" value="1">1 Kind</option>
-                                    <option style="color: grey" value="2">2 Kinder</option>
-                                    <option style="color: grey" value="3">3 Kinder</option>
-                                    <option style="color: grey" value="4">4 Kinder</option>
-                                    <option style="color: grey" value="5">5 Kinder</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <button type="submit" class="btn btn-default btn-block">anmelden</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-		</div>
-	</div>
-
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
-
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
 	</div>
 
 	<div class="gototop js-top">
