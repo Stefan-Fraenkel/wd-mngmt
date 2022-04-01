@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -10,6 +11,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Notifications\GuestRegistered;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use \Illuminate\Notifications\Notifiable;
@@ -22,43 +24,55 @@ class WdController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test() {
-        $user = Auth::user();
-        $user = User::find(1);
-        $group = explode(', ', $user->group);
-        $i = 0;
-        foreach ($group as $id) {
-            $i++;
-            $member = User::find($id);
-            echo 'Mitglied ' . $i . ': ' . $member->first_name . ' ' . $member->last_name . '<br>';
-        }
-
-        dd($group);
-     //   echo env('PUSHBULLET_ACCESS_TOKEN');
-      //  $notification = 'Test';
-     //   $this->notify(new GuestRegistered());
-       // request()->user()->notify(new GuestRegistered($request->title, $request->update));
-
-    //    Notification::send($notification, new GuestRegistered());
-       // $test = new GuestRegistered();
-//dd($test);
-       // return new \NotificationChannels\Pushbullet\Targets\Email('efzekawe@gmail.com');
-
-    }
-
     public function attend(Request $request) {
+        if (!$request->adults) {
+         return redirect()->back();
+        }
         return view('attend')
             -> with('adults', $request->adults)
             -> with('children', $request->children);
     }
 
-    public function bookRoom() {
+    public function bookRoom(Request $request)
+    {
+        if(isset($request['guests']) && $request->isMethod('post')) {
 
+            $adult_guests = null;
+            $child_guests = null;
+
+            foreach ($request['guests'] as $id) {
+                $user = User::find($id);
+                if ($user->adult) {
+                    $adult_guests++;
+                }
+                else $child_guests++;
+            }
+
+            $user_id = Auth::user()->id;
+            $check_in = $request['arrival'];
+            $check_out = $request['departure'];
+            $comment = $request['comment'];
+            $created_at = Carbon::now();
+            $updated_at = $created_at;
+            $booking = [$user_id, $adult_guests, $child_guests, $check_in, $check_out, $comment,  $created_at,  $updated_at];
+            DB::insert('insert into bookings (user_id, adult_guests, child_guests, check_in, check_out, comment, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', $booking);
+
+            return $this->showProfile();
+        }
+        else {
+            $user = Auth::user();
+            $group_ids = explode(', ', $user->group);
+            $group = array();
+            foreach ($group_ids as $id) {
+                $group[] = User::find($id);
+            }
+            return view('booking') -> with('group', $group);
+        }
     }
 
     public function updateGuest(Request $request)
     {
-        if($request->isMethod('post')) {
+        if(isset($request['members']) && $request->isMethod('post')) {
             foreach ($request['members'] as $member) {
                 $user = User::find($member['id']);
                 if (isset($member['dinner'])) {
@@ -75,7 +89,7 @@ class WdController extends BaseController
                 }
                 $user->save();
             }
-            return view('index');
+            return $this->bookRoom($request);
         }
         else {
             $user = Auth::user();
@@ -84,8 +98,22 @@ class WdController extends BaseController
             foreach ($group_ids as $id) {
                 $group[] = User::find($id);
             }
-            return view('user-info') -> with('group', $group);
+            return view('user-details') -> with('group', $group);
         }
+    }
+
+    public function showProfile()
+    {
+        $user = Auth::user();
+        if ($user) {
+            $group_ids = explode(', ', $user->group);
+            $group = array();
+            foreach ($group_ids as $id) {
+                $group[] = User::find($id);
+            }
+            return view('user-home')->with('group', $group)->with('number', count($group));
+        }
+            else return redirect('/login');
     }
 
     public function createGuest(Request $request)
@@ -95,6 +123,7 @@ class WdController extends BaseController
         if ($request->adult) {
             foreach ($request->adult as $guest) {
                 $user = new User();
+                $user->name = $guest['first_name'] . ' ' . $guest['last_name'];
                 $user->first_name = $guest['first_name'];
                 $user->last_name = $guest['last_name'];
                 $user->adult = true;
@@ -115,6 +144,7 @@ class WdController extends BaseController
         if ($request->child) {
             foreach ($request->child as $guest) {
                 $user = new User();
+                $user->name = $guest['first_name'] . ' ' . $guest['last_name'];
                 $user->first_name = $guest['first_name'];
                 $user->last_name = $guest['last_name'];
                 $user->adult = false;
@@ -128,7 +158,8 @@ class WdController extends BaseController
             $user->group = $group;
             $user->save();
         }
-        return view('index');
+        Auth::login($users[0]);
+        return $this->updateGuest($request);
     }
 
 }
