@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique()->nullable();
@@ -24,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->date('birthday')->nullable();
             $table->enum('covid', ['none', 'first', 'second', 'third' ])->nullable();
-            $table->enum('dinner', ['meat', 'fish', 'vegetarian', 'vegan' ])->nullable();
+            $table->enum('dinner', ['beef', 'chicken', 'fish', 'vegan' ])->nullable();
             $table->string('comment_dinner')->nullable();
             $table->boolean('booking')->nullable();
             $table->boolean('dancing')->nullable();

@@ -18,11 +18,10 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('adult_guests');
-            $table->integer('child_guests');
+            $table->integer('child_guests')->nullable();
             $table->date('check_in');
             $table->date('check_out');
-            $table->string('room_type');
-            $table->string('comment');
+            $table->string('comment')->nullable();;
             $table->timestamps();
         });
     }
