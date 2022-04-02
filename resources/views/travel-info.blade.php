@@ -79,12 +79,12 @@
 <div id="page">
 
     <div id="attending"></div>
-    <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_hands.jpg);">
-        <div class="overlay"></div>
+    <div id="fh5co-started" class="fh5co-bg" style="background-color: white;">
+
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Reisen nach Bulgarien</h2>
+                    <h2 style="color: #F14E95">Reisen nach Bulgarien</h2>
                     <p>Mit diesen Tipps kommst du schneller ans Ziel.</p>
                     <div class="row animate-box">
                         <div class="row">
@@ -99,13 +99,13 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            <h2>{{ __('Flug nach Sofia') }}</h2>
+                            <h2 style="color: #F14E95">{{ __('Flug nach Sofia') }}</h2>
                             <br>
-                            <p style="color: white">
+                            <p style="color: #828282">
                                 {{ __('Von fast allen deutschen Flughäfen gibt es gute Verbindungen nach Sofia, die Hauptstadt Bulgariens.')}}<br>
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="/transfer-info" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Von Sofia nach Blagoevgrad')}}</a>
+                                <a href="/transfer-info" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Von Sofia nach Blagoevgrad')}}</a>
                             </div>
                         </div>
                     </div>
@@ -113,14 +113,14 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            <h2>{{ __('Fahrt mit dem Auto') }}</h2>
+                            <h2 style="color: #F14E95">{{ __('Fahrt mit dem Auto') }}</h2>
                             <br>
-                            <p style="color: white">
+                            <p style="color: #828282">
                                 {{ __('Von Berlin aus sind es etwa 1.800 km bis zum Hotel') }}<br>
                                 {{ __('Wer abenteuerlustig ist, kann einen Road Trip unternehmen.') }}
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="https://g.page/orbitaspahotelblagoevgrad" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Hotel auf Google Maps')}}</a>
+                                <a href="https://g.page/orbitaspahotelblagoevgrad" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Hotel auf Google Maps')}}</a>
                             </div>
                         </div>
                     </div>

@@ -106,7 +106,7 @@
 							</ul>
 						</li>
                         @auth
-						<li><a href="/profile">{{ __('Mein Profil') }}</a></li>
+                            <li><a href="/wd-logout">{{ __('Abmelden') }}</a>
                         @else
                             <li><a href="/profile">{{ __('Anmelden') }}</a></li>
                         @endauth
@@ -128,7 +128,12 @@
 							<h2>{{ __('Wir Heiraten') }}</h2>
 							<div class="simply-countdown simply-countdown-one"></div>
                             <br>
-							<p><a href="#attending" class="btn btn-default btn-sm">{{ __('Zusagen') }}</a></p>
+                            @auth
+                                <p><a href="#attending" class="btn btn-default btn-sm">{{ __('Dein Profil') }}</a></p>
+                            @else
+                                 <p><a href="#attending" class="btn btn-default btn-sm">{{ __('Zusagen') }}</a></p>
+                            @endauth
+
 						</div>
 					</div>
 				</div>
@@ -173,57 +178,60 @@
         <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
             <div class="overlay"></div>
             <div class="container">
-                <div class="row animate-box">
-                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                        <h2>{{ __('Feiert mit uns!')}}</h2>
-                        <p>{{ __('Meldet euch bitte bis zum 30.04. an. Danke.')}}</p>
+                @auth
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2>{{ __('Du bist angemeldet') }}</h2>
+                            <p>{{ __('Hier kannst du alles weitere erledigen.') }}</p>
+                            <br>
+                            <p><a href="/profile" class="btn btn-default btn-sm" style="height: 54px; line-height: 38px;">{{ __('Mein Profil') }}</a></p>
+                        </div>
                     </div>
-                </div>
-                <div class="row animate-box">
-                    <div class="col-md-10 col-md-offset-1">
-                        <form class="form-inline" method="POST" action={{route("attend")}}>
-                            @csrf
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="adults" class="sr-only"></label>
-                                    <select class="form-control" name="adults" id="adults">
-                                        <option style="display: none" value="">Erwachsene</option>
-                                        <option style="color: grey" value="1">1 Erwachsenen</option>
-                                        <option style="color: grey" value="2">2 Erwachsene</option>
-                                        <option style="color: grey" value="3">3 Erwachsene</option>
-                                        <option style="color: grey" value="4">4 Erwachsene</option>
-                                        <option style="color: grey" value="5">5 Erwachsene</option>
-                                    </select>
+                @else
+                            <div class="row animate-box">
+                                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                                    <h2>{{ __('Feiert mit uns!')}}</h2>
+                                    <p>{{ __('Meldet euch bitte bis zum 31.05. an. Danke.')}}</p>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="children" class="sr-only"></label>
-                                    <select class="form-control" name="children" id="children">
-                                        <option style="display: none" value="">Kinder</option>
-                                        <option style="color: grey" value="0">keine Kinder</option>
-                                        <option style="color: grey" value="1">1 Kind</option>
-                                        <option style="color: grey" value="2">2 Kinder</option>
-                                        <option style="color: grey" value="3">3 Kinder</option>
-                                        <option style="color: grey" value="4">4 Kinder</option>
-                                        <option style="color: grey" value="5">5 Kinder</option>
-                                    </select>
+                            <div class="row animate-box">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <form class="form-inline" method="POST" action={{route("attend")}}>
+                                        @csrf
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label for="adults" class="sr-only"></label>
+                                                <select class="form-control" name="adults" id="adults">
+                                                    <option style="display: none" value="">Erwachsene</option>
+                                                    <option style="color: grey" value="1">1 Erwachsenen</option>
+                                                    <option style="color: grey" value="2">2 Erwachsene</option>
+                                                    <option style="color: grey" value="3">3 Erwachsene</option>
+                                                    <option style="color: grey" value="4">4 Erwachsene</option>
+                                                    <option style="color: grey" value="5">5 Erwachsene</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label for="children" class="sr-only"></label>
+                                                <select class="form-control" name="children" id="children">
+                                                    <option style="display: none" value="">Kinder</option>
+                                                    <option style="color: grey" value="0">keine Kinder</option>
+                                                    <option style="color: grey" value="1">1 Kind</option>
+                                                    <option style="color: grey" value="2">2 Kinder</option>
+                                                    <option style="color: grey" value="3">3 Kinder</option>
+                                                    <option style="color: grey" value="4">4 Kinder</option>
+                                                    <option style="color: grey" value="5">5 Kinder</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <button type="submit" class="btn btn-default btn-block">{{ __('anmelden')}}</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4">
-                                <button type="submit" class="btn btn-default btn-block">{{ __('anmelden')}}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <br><br>
-                <div class="row animate-box">
-                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                        <h2>{{ __('Schon angemeldet?') }}</h2>
-                        <p>{{ __('Hier kannst du alles weitere erledigen.') }}</p>
-                        <p><a href="/profile" class="btn btn-default btn-sm" style="height: 54px; line-height: 38px;">{{ __('Profil') }}</a></p>
-                    </div>
-                </div>
+                @endauth
             </div>
         </div>
 

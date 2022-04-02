@@ -24,6 +24,11 @@ class WdController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function logout () {
+        auth()->logout();
+        return redirect('/');
+    }
+
     public function attend(Request $request) {
         if (!$request->adults) {
          return redirect()->back();

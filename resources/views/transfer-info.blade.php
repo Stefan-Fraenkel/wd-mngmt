@@ -79,12 +79,12 @@
 <div id="page">
 
     <div id="attending"></div>
-    <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_hands.jpg);">
-        <div class="overlay"></div>
+    <div id="fh5co-started" class="fh5co-bg" style="background-color: white;">
+
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>{{ __('Von Sofia nach Blagoevgrad') }}</h2>
+                    <h2 style="color: #F14E95">{{ __('Von Sofia nach Blagoevgrad') }}</h2>
                     <p>Mit diesen Tipps kommst du schneller ans Ziel.</p>
                     <div class="row animate-box">
                         <div class="row">
@@ -103,14 +103,14 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            <h2>{{ __('Auto')}}</h2>
+                            <h2 style="color: #F14E95">{{ __('Auto')}}</h2>
                             <br>
-                            <p style="color: white">
+                            <p style="color: #828282">
                                 {{ __('Sollte frühzeitig gemietet werden, da Preise im Sommer sehr hoch steigen können.')}}<br>
                                 {{ __('Am besten große Anbieter wie Sixt verwenden. Lokale Unternehmen sind häufig nicht vertrauenswürdig.')}}
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="https://g.page/orbitaspahotelblagoevgrad" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Hotel auf Google Maps')}}</a>
+                                <a href="https://g.page/orbitaspahotelblagoevgrad" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Hotel auf Google Maps')}}</a>
                             </div>
                         </div>
                     </div>
@@ -118,14 +118,14 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            <h2>{{ __('Bus und Bahn')}}</h2>
+                            <h2 style="color: #F14E95">{{ __('Bus und Bahn')}}</h2>
                             <br>
-                            <p style="color: white">
+                            <p style="color: #828282">
                                 {{ __('Vom Bahnhof / ZOB fahren regelmäßig Züge und Busse nach Blagoevgrad.')}}
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="http://centralnaavtogara.bg/index.php?lang=_de" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Bustickets')}}</a>
-                                <a href="https://www.bdz.bg/en" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Zugtickets')}}</a>
+                                <a href="http://centralnaavtogara.bg/index.php?lang=_de" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Bustickets')}}</a>
+                                <a href="https://www.bdz.bg/en" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Zugtickets')}}</a>
                             </div>
                         </div>
                     </div>
@@ -133,14 +133,14 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            <h2>{{ __('U-Bahn zum Bahnhof')}}</h2>
+                            <h2 style="color: #F14E95">{{ __('U-Bahn zum Bahnhof')}}</h2>
                             <br>
-                            <p style="color: white">
+                            <p style="color: #828282">
                                 {{ __('Vom Flughafen fährt eine U-Bahn Linie direkt zum Bahnhof / ZOB.')}}
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="https://goo.gl/maps/pWDkGak9DkfPMpRb6" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('U-Bahn Station')}}</a>
-                                <a href="https://www.metrosofia.com/en" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Tickets U-Bahn')}}</a>
+                                <a href="https://goo.gl/maps/pWDkGak9DkfPMpRb6" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('U-Bahn Station')}}</a>
+                                <a href="https://www.metrosofia.com/en" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Tickets U-Bahn')}}</a>
                             </div>
                         </div>
                     </div>
@@ -148,15 +148,15 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            <h2>{{ __('Taxi zum Bahnhof') }}</h2>
+                            <h2 style="color: #F14E95">{{ __('Taxi zum Bahnhof') }}</h2>
                             <br>
-                            <p style="color: white">
+                            <p style="color: #828282">
                                 {{ __('Am besten an der Information im Flughafen nachfragen.')}}<br>
                                 {{ __('Preis vor Abfahrt vereinbaren. Sollte 10 - 15 € (20 - 30 Lew) betragen.')}}
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="https://goo.gl/maps/ugrnaJto44XwGqGn8" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Busbahnhof')}}</a>
-                                <a href="https://goo.gl/maps/mUBb1CSzegxDhrNU6" target="_blank" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Bahnhof')}}</a>
+                                <a href="https://goo.gl/maps/ugrnaJto44XwGqGn8" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Busbahnhof')}}</a>
+                                <a href="https://goo.gl/maps/mUBb1CSzegxDhrNU6" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Bahnhof')}}</a>
                             </div>
                         </div>
                     </div>
