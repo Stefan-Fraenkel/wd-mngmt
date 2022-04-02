@@ -61,7 +61,7 @@ class WdController extends BaseController
             $updated_at = $created_at;
             $booking = [$user_id, $adult_guests, $child_guests, $check_in, $check_out, $comment,  $created_at,  $updated_at];
             DB::insert('insert into bookings (user_id, adult_guests, child_guests, check_in, check_out, comment, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', $booking);
-
+            Auth::user()->booking = true;
             return $this->showProfile();
         }
         else {
@@ -77,6 +77,7 @@ class WdController extends BaseController
 
     public function updateGuest(Request $request)
     {
+
         if(isset($request['members']) && $request->isMethod('post')) {
             foreach ($request['members'] as $member) {
                 $user = User::find($member['id']);
@@ -135,7 +136,7 @@ class WdController extends BaseController
                 if ($guest['email']) {
                     $user->email = $guest['email'];
                 }
-                if ($guest['phone']) {
+                if ($guest['password']) {
                     $user->password = Hash::make($guest['password']);
                 }
                 if ($guest['phone']) {
