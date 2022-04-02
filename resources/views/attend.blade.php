@@ -26,19 +26,6 @@
 	//////////////////////////////////////////////////////
 	 -->
 
-
-
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 
@@ -76,10 +63,29 @@
 
 	<div class="fh5co-loader"></div>
 
-	<div id="page">
-
-<div id="attending"></div>
+    <div id="page">
+        <nav class="fh5co-nav" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-2 menu-1">
+                        <div id="fh5co-logo"><a href="index.html">{{ __('Hochzeit') }}<strong>.</strong></a></div>
+                    </div>
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul>
+                            <li><a href="index.html">{{ __('Start') }}</a></li>
+                            @auth
+                                <li class="active"><a href="/profile">{{ __('Mein Profil') }}</a></li>
+                                <li><a href="/wd-logout">{{ __('Abmelden') }}</a>
+                            @else
+                                <li><a href="/profile">{{ __('Anmelden') }}</a></li>
+                            @endauth
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
+        <br>
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
@@ -214,37 +220,9 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
 
-	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
 	<script src="js/simplyCountdown.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
-	<script>
-    var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
-
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: 2022, // required
-        month: 7, // required
-        day: 23, // required
-       // year: d.getFullYear(),
-      //  month: d.getMonth() + 1,
-      //  day: d.getDate()
-    });
-
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: 2022, // required
-        month: 7, // required
-        day: 23, // required
-       // year: d.getFullYear(),
-      //  month: d.getMonth() + 1,
-      //  day: d.getDate(),
-        enableUtc: false
-    });
-
-
-</script>
 
 	</body>
 </html>

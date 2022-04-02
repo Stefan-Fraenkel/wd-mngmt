@@ -26,19 +26,6 @@
 	//////////////////////////////////////////////////////
 	 -->
 
-
-
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 
@@ -86,29 +73,11 @@
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
 						<li class="active"><a href="index.html">{{ __('Start') }}</a></li>
-						<li><a href="about.html">{{ __('Geschichte') }}</a></li>
-						<li class="has-dropdown">
-							<a href="services.html">{{ __('Dropdown') }}</a>
-							<ul class="dropdown">
-								<li><a href="#">{{ __('DD1') }}</a></li>
-								<li><a href="#">{{ __('DD2') }}</a></li>
-								<li><a href="#">{{ __('DD3') }}</a></li>
-								<li><a href="#">{{ __('DD4') }}</a></li>
-							</ul>
-						</li>
-						<li class="has-dropdown">
-							<a href="gallery.html">{{ __('Gallerie') }}</a>
-							<ul class="dropdown">
-								<li><a href="#">{{ __('Trauung') }}</a></li>
-								<li><a href="#">{{ __('G2') }}</a></li>
-								<li><a href="#">{{ __('G3') }}</a></li>
-								<li><a href="#">{{ __('G4') }}</a></li>
-							</ul>
-						</li>
                         @auth
-                            <li><a href="/wd-logout">{{ __('Abmelden') }}</a>
+                            <li><a href="{{ url('/profile')}}">{{ __('Mein Profil') }}</a></li>
+                            <li><a href="/wd-logout">{{ __('Abmelden') }}</a></li>
                         @else
-                            <li><a href="/profile">{{ __('Anmelden') }}</a></li>
+                            <li><a href="{{ url('/profile')}}">{{ __('Anmelden') }}</a></li>
                         @endauth
 					</ul>
 				</div>
@@ -129,7 +98,7 @@
 							<div class="simply-countdown simply-countdown-one"></div>
                             <br>
                             @auth
-                                <p><a href="#attending" class="btn btn-default btn-sm">{{ __('Dein Profil') }}</a></p>
+                                <p><a href="#attending" class="btn btn-default btn-sm">{{ __('Du bist dabei') }}</a></p>
                             @else
                                  <p><a href="#attending" class="btn btn-default btn-sm">{{ __('Zusagen') }}</a></p>
                             @endauth
@@ -202,12 +171,12 @@
                                             <div class="form-group">
                                                 <label for="adults" class="sr-only"></label>
                                                 <select class="form-control" name="adults" id="adults">
-                                                    <option style="display: none" value="">Erwachsene</option>
-                                                    <option style="color: grey" value="1">1 Erwachsenen</option>
-                                                    <option style="color: grey" value="2">2 Erwachsene</option>
-                                                    <option style="color: grey" value="3">3 Erwachsene</option>
-                                                    <option style="color: grey" value="4">4 Erwachsene</option>
-                                                    <option style="color: grey" value="5">5 Erwachsene</option>
+                                                    <option style="display: none" value="">{{ __('Erwachsene')}}</option>
+                                                    <option style="color: grey" value="1">1 {{ __('Erwachsenen')}}</option>
+                                                    <option style="color: grey" value="2">2 {{ __('Erwachsenen')}}</option>
+                                                    <option style="color: grey" value="3">3 {{ __('Erwachsenen')}}</option>
+                                                    <option style="color: grey" value="4">4 {{ __('Erwachsenen')}}</option>
+                                                    <option style="color: grey" value="5">5 {{ __('Erwachsenen')}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -215,13 +184,13 @@
                                             <div class="form-group">
                                                 <label for="children" class="sr-only"></label>
                                                 <select class="form-control" name="children" id="children">
-                                                    <option style="display: none" value="">Kinder</option>
-                                                    <option style="color: grey" value="0">keine Kinder</option>
-                                                    <option style="color: grey" value="1">1 Kind</option>
-                                                    <option style="color: grey" value="2">2 Kinder</option>
-                                                    <option style="color: grey" value="3">3 Kinder</option>
-                                                    <option style="color: grey" value="4">4 Kinder</option>
-                                                    <option style="color: grey" value="5">5 Kinder</option>
+                                                    <option style="display: none" value="0">{{ __('Kinder')}}</option>
+                                                    <option style="color: grey" value="0">{{ __('keine Kinder')}}</option>
+                                                    <option style="color: grey" value="1">1 {{ __('Kind')}}</option>
+                                                    <option style="color: grey" value="2">2 {{ __('Kinder')}}</option>
+                                                    <option style="color: grey" value="3">3 {{ __('Kinder')}}</option>
+                                                    <option style="color: grey" value="4">4 {{ __('Kinder')}}</option>
+                                                    <option style="color: grey" value="5">5 {{ __('Kinder')}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -307,24 +276,12 @@
                                     <h3>{{ __('Stadtführung') }}</h3>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        {{--
-                                        <span>{{ __('14:00 Uhr') }}</span>
-                                        <span>{{ __('15:30 Uhr'
-                                        --}}
                                         <span>{{ __('14:00 - 15:30 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
-                                        {{--
-                                        <span>{{ __('Freitag 22.') }}</span>
-                                        <span>{{ __('Juli 2022') }}</span>
-                                        --}}
                                         <span>{{ __('Freitag, 22.07.') }}</span>
                                     </div>
-                                    {{--
-                                    <p>{{ __('Weitere Informationen') }}</p>
-
-                                    <span>{{ __('Weitere Informationen') }}</span>--}}
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6 text-center">
@@ -332,21 +289,12 @@
                                     <h3>{{ __('Tanzkurs') }}</h3>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        {{--
-                                         <span>{{ __('16:00 Uhr') }}</span>
-                                        <span>{{ __('17:30 Uhr') }}</span>
-                                        --}}
                                         <span>{{ __('16:00 - 17:30 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
-                                        {{--
-                                        <span>{{ __('Freitag 22.') }}</span>
-                                        <span>{{ __('Juli 2022') }}</span>
-                                        --}}
                                         <span>{{ __('Freitag, 22.07.') }}</span>
                                     </div>
-                                    {{--  <span>{{ __('Weitere Informationen') }}</span>--}}
                                 </div>
                             </div>
                             <br><br><br><br><br><br><br><br><br><br>
@@ -355,18 +303,10 @@
 									<h3>{{ __('Hochzeitszeremonie') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-                                        {{--
-                                        <span>{{ __('17:00 Uhr') }}</span>
-										<span>{{ __('17:45 Uhr') }}</span>
-                                        --}}
 										<span>{{ __('17:00 - 17:45 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
-                                        {{--
-										<span>{{ __('Samstag 23.') }}</span>
-										<span>{{ __('Juli, 2022') }}</span>
-                                        --}}
 										<span>{{ __('Samstag, 23.07.') }}</span>
 									</div>
 								</div>
@@ -376,18 +316,10 @@
 									<h3>{{ __('Hochzeitsfeier') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-                                        {{--
-										<span>{{ __('18:00 Uhr') }}</span>
-										<span>{{ __('??:?? Uhr') }}</span>
-                                        --}}
 										<span>{{ __('ab 18:00 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
-                                        {{--
-										<span>{{ __('Samstag 23.') }}</span>
-										<span>{{ __('Juli 2022') }}</span>
-                                        --}}
 										<span>{{ __('Samstag, 23.07.') }}</span>
 									</div>
 								</div>
@@ -406,7 +338,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<span>{{ __('Auf ins Abenteuer')}}</span>
 					<h2>{{ __('Kleiner Reiseführer')}}</h2>
-					<p>{{ __('Kleiner Reiseführer')}}</p>
+					<p>{{ __('Tips rund um Bulgarien')}}</p>
 				</div>
 			</div>
 			<div class="row row-bottom-padded-md">
@@ -416,7 +348,7 @@
 						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/country.jpg); ">
 						<a href="/travel-info">
 							<div class="case-studies-summary">
-								<span>Wie komme ich da hin?</span>
+								<span>{{ __('Wie komme ich da hin?') }}</span>
 								<h2>{{ __('Reisen nach Bulgarien') }}</h2>
 							</div>
 						</a>
@@ -424,7 +356,7 @@
 					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/capitol.jpg); ">
 						<a href="/country-info" class="color-2">
 							<div class="case-studies-summary">
-								<span>Was sollte ich wissen?</span>
+								<span>{{ __('Was sollte ich wissen?') }}</span>
 								<h2>{{ __('Eine kleine Landeskunde') }}</h2>
 							</div>
 						</a>
@@ -432,8 +364,8 @@
 					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/city.jpg); ">
 						<a href="/bg-info" class="color-3">
 							<div class="case-studies-summary">
-								<span>Was gibt es sonst noch?</span>
-								<h2>Besuch in Blagoevgrad</h2>
+								<span>{{ __('Was gibt es sonst noch?') }}</span>
+								<h2>{{ __('Besuch in Blagoevgrad') }}</h2>
 							</div>
 						</a>
 					</li>
