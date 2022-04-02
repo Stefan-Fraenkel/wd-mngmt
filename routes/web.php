@@ -15,7 +15,7 @@ use App\Http\Controllers\WdController;
 |
 */
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/wd-logout', [WdController::class, 'logout']);
 
 
