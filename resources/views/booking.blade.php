@@ -115,14 +115,15 @@
                         <a href="/profile"  class="btn btn-default btn-block" style="background: white; color: #F14E95; height: 54px; line-height: 38px; text-align: center;">{{ __('Ich benötige kein Hotelzimmer')}}</a>
                     </div>
                 </div>
-            </div>
-			<div class="row animate-box">
+                <br>
 				<div class="col-md-10 col-md-offset-1">
                     <div class="row" style="padding-left: 2%; padding-right: 2%;">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            {{ __('Preis pro Zimmer:')}}<br><br>
-                            {{ __('1 Person: 89 lv (ca. 45€) / Nacht')}}<br>
-                            {{ __('ab 2 Personen 99 lv (ca. 50€) / Nacht')}}<br><br>
+                            {{ __('Preis pro Person und Nacht:')}}<br><br>
+                            {{ __('1 Person: 89 lv (ca. 45 €)')}}<br>
+                            {{ __('ab 2 Personen 99 lv (ca. 50 €)')}}<br><br>
+                            {{ __('Kinder unter 6 Jahren kostenlos')}}<br>
+                            {{ __('Kinder unter 12 Jahren 35 lv (ca. 18 €)')}}<br><br>
                             {{ __('Die größten Zimmer bieten Platz für bis zu 4 Erwachsene mit 2 Kinder.')}}<br>
                             {{ __('Auf die Auswahl des genauen Zimmers haben wir keinen Einfluss.')}}<br>
                         </div>

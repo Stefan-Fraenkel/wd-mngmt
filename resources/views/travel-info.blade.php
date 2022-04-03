@@ -112,7 +112,7 @@
                                 {{ __('Von fast allen deutschen Flughäfen gibt es gute Verbindungen nach Sofia, die Hauptstadt Bulgariens.')}}<br>
                             </p>
                             <div class="row" style="padding-top: 20px">
-                                <a href="/transfer-info" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Von Sofia nach Blagoevgrad')}}</a>
+                                <a href="/transfer-info" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Von Sofia nach Blagoevgrad')}}</a>
                             </div>
                         </div>
                     </div>

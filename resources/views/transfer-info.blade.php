@@ -126,7 +126,7 @@
                             <h2 style="color: #F14E95">{{ __('Bus und Bahn')}}</h2>
                             <br>
                             <p style="color: #828282">
-                                {{ __('Vom Bahnhof / ZOB fahren regelmäßig Züge und Busse nach Blagoevgrad.')}}
+                                {{ __('Vom Bahnhof / ZOB fahren Züge und Busse nach Blagoevgrad.')}}
                             </p>
                             <div class="row" style="padding-top: 20px">
                                 <a href="http://centralnaavtogara.bg/index.php?lang=_de" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('Bustickets')}}</a>
@@ -141,7 +141,8 @@
                             <h2 style="color: #F14E95">{{ __('U-Bahn zum Bahnhof')}}</h2>
                             <br>
                             <p style="color: #828282">
-                                {{ __('Vom Flughafen fährt eine U-Bahn Linie direkt zum Bahnhof / ZOB.')}}
+                                {{ __('Vom Flughafen fährt eine U-Bahn Linie direkt zum Bahnhof / ZOB.')}}<br>
+                                {{ __('In der U-Bahn muss bei Mitführung von Reisegepäck ein zweites Ticket gelöst werden')}}
                             </p>
                             <div class="row" style="padding-top: 20px">
                                 <a href="https://goo.gl/maps/pWDkGak9DkfPMpRb6" target="_blank" class="btn btn-default btn-sm" style="background: #F14E95; color: white; height: 54px; line-height: 38px;">{{ __('U-Bahn Station')}}</a>

@@ -99,9 +99,10 @@
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
                             <p style="color: white; padding-bottom: 1%;">
                                 <br>
+                                {{ __('Geschenke sind uns nicht so wichtig. Eure Zeit ist uns Geschenk genug.') }}<br>
                                 {{ __('Für den Vortag der Hochzeitsfeier haben wir eine Stadtführung und einen Tanzkurs organisiert.') }} <br>
                                 {{ __('Beim Tanzkurs lernt ihr einen bulgarischen Reihentanz, den wir am Samstag tanzen wollen.') }} <br>
-                                {{ __('Die Stadtführung stellt Elis Heimatstadt Blagoewgrad vor.') }} <br>
+                                {{ __('Die Stadtführung stellt Elis Heimatstadt Blagoevgrad vor.') }} <br>
                                 {{ __('Für die Feier könnt ihr zwischen verschiedenen Menus wählen.') }} <br>
                                 {{ __('Wo ihr mitmachen wollt und was ihr essen mögt, könnt ihr uns hier mitteilen.') }}
                             </p>

@@ -228,7 +228,7 @@
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
                             <h2 style="color: #F14E95">{{ __('Historisches Museum') }}</h2>
                             <p style="color: #828282">
-                                {{ __('Eines der größten Museen über die bulgarische Geschichte.')}}
+                                {{ __('Museum über die Geschichte der Region.')}}
                             </p>
                             <div class="row" style="padding-top: 20px; display: flex">
                                 <div class="column" style="flex: 50%; padding-right: 5%">

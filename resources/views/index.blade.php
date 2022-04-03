@@ -115,7 +115,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>{{ __('Hallo!') }}</h2>
-					<h3>{{ __('27. Juli, 2022 Blagoevgrad, Bulgarien') }}</h3>
+					<h3>{{ __('23. Juli, 2022 Blagoevgrad, Bulgarien') }}</h3>
 					<p>{{ __('Wir laden dich ein, mit uns zu feiern') }}</p>
 				</div>
 			</div>
@@ -203,7 +203,7 @@
                                     </form>
                                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                                         <br>
-                                        <p>{{ __('Meldet euch bitte bis zum 31.05. an. Danke.')}}</p>
+                                        <p>{{ __('Meldet euch bitte bis zum 30.04. an. Danke.')}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -310,7 +310,7 @@
 									<h3>{{ __('Hochzeitszeremonie') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-										<span>{{ __('17:00 - 17:45 Uhr') }}</span>
+										<span>{{ __('17:30 - 18:15 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
@@ -323,7 +323,7 @@
 									<h3>{{ __('Hochzeitsfeier') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-										<span>{{ __('ab 18:00 Uhr') }}</span>
+										<span>{{ __('ab 18:30 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
@@ -345,7 +345,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<span>{{ __('Auf ins Abenteuer')}}</span>
 					<h2>{{ __('Kleiner Reiseführer')}}</h2>
-					<p>{{ __('Tips rund um Bulgarien')}}</p>
+					<p>{{ __('Tipps rund um Bulgarien')}}</p>
 				</div>
 			</div>
 			<div class="row row-bottom-padded-md">
