@@ -61,7 +61,9 @@ class WdController extends BaseController
             $updated_at = $created_at;
             $booking = [$user_id, $adult_guests, $child_guests, $check_in, $check_out, $comment,  $created_at,  $updated_at];
             DB::insert('insert into bookings (user_id, adult_guests, child_guests, check_in, check_out, comment, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?)', $booking);
-            Auth::user()->booking = true;
+            $user = Auth::user();
+            $user->booking = true;
+            $user->save();
             return $this->showProfile();
         }
         else {
