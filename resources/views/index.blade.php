@@ -151,16 +151,19 @@
                     <div class="row animate-box">
                         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                             <h2>{{ __('Du bist angemeldet') }}</h2>
-                            <p>{{ __('Hier kannst du alles weitere erledigen.') }}</p>
+                            <p>{{ __('Das ist für uns das schönste Geschenk!')}}</p>
                             <br>
-                            <p><a href="/profile" class="btn btn-default btn-sm" style="height: 54px; line-height: 38px;">{{ __('Mein Profil') }}</a></p>
+                            <p><a href="/profile" class="btn btn-default btn-sm" style="height: 54px; line-height: 38px;">{{ __('Dein Profil') }}</a></p>
+                            <br>
+                            <p>{{ __('Hier kannst du alles weitere erledigen.') }}</p>
                         </div>
                     </div>
                 @else
                             <div class="row animate-box">
                                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                                     <h2>{{ __('Feiert mit uns!')}}</h2>
-                                    <p>{{ __('Meldet euch bitte bis zum 31.05. an. Danke.')}}</p>
+                                    <p>{{ __('Eine Reise nach Bulgarien ist nicht selbstverständlich.')}}<br>
+                                    {{ __('Darum wünschen wir uns nur ein Geschenk: Das ihr möglichst alle kommt.')}}</p>
                                 </div>
                             </div>
                             <div class="row animate-box">
@@ -198,6 +201,10 @@
                                             <button type="submit" class="btn btn-default btn-block">{{ __('anmelden')}}</button>
                                         </div>
                                     </form>
+                                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                                        <br>
+                                        <p>{{ __('Meldet euch bitte bis zum 31.05. an. Danke.')}}</p>
+                                    </div>
                                 </div>
                             </div>
                 @endauth
