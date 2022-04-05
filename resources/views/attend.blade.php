@@ -125,9 +125,9 @@
                                 <div class="form-group">
                                     <label for="email" class="sr-only">{{ __('Email')}}</label>
                                     @if($i==1)
-                                    <input type="email" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
+                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
                                     @else
-                                        <input type="email" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
+                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
                                     @endif
                                 </div>
                             </div>
