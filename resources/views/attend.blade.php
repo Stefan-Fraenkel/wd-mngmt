@@ -108,13 +108,13 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="first_name" class="sr-only"></label>
-                                    <input type="text" name="adult[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
+                                    <input type="text" name="adults[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="last_name" class="sr-only"></label>
-                                    <input type="text" name="adult[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
+                                    <input type="text" name="adults[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
                                 </div>
                             </div>
                                 <div class="col-md-4 col-sm-4">
@@ -125,9 +125,9 @@
                                 <div class="form-group">
                                     <label for="email" class="sr-only">{{ __('Email')}}</label>
                                     @if($i==1)
-                                    <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
+                                    <input type="email" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
                                     @else
-                                        <input type="email" name="adult[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
+                                        <input type="email" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
                                     @endif
                                 </div>
                             </div>
@@ -135,9 +135,9 @@
                                 <div class="form-group">
                                     <label for="phone" class="sr-only">{{ __('Telefon')}}</label>
                                     @if($i==1)
-                                        <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" required placeholder="Telefon*">
+                                        <input type="tel" name="adults[{{$i}}][phone]" class="form-control" id="phone" required placeholder="Telefon*">
                                     @else
-                                        <input type="tel" name="adult[{{$i}}][phone]" class="form-control" id="phone" placeholder="Telefon">
+                                        <input type="tel" name="adults[{{$i}}][phone]" class="form-control" id="phone" placeholder="Telefon">
                                     @endif
                                 </div>
                             </div>
@@ -149,9 +149,9 @@
                                     <div class="form-group">
                                         <label for="password" class="sr-only">{{ __('Passwort')}}</label>
                                         @if($i==1)
-                                            <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
+                                            <input type="password" name="adults[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
                                         @else
-                                            <input type="password" name="adult[{{$i}}][password]" class="form-control" id="password" placeholder="Passwort">
+                                            <input type="password" name="adults[{{$i}}][password]" class="form-control" id="password" placeholder="Passwort">
                                         @endif
                                     </div>
                                 </div>
@@ -168,13 +168,13 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="first_name" class="sr-only"></label>
-                                        <input type="text" name="child[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
+                                        <input type="text" name="children[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="text" class="sr-only"></label>
-                                        <input type="text" name="child[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
+                                        <input type="text" name="children[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
                                     </div>
                                 </div>
                             </div>
@@ -196,6 +196,14 @@
 		</div>
 	</div>
 	</div>
+
+@if(isset($message))
+    <script>
+        setTimeout(function(){
+            alert("{{$message}}");
+        }, 1000);
+    </script>
+@endif
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>

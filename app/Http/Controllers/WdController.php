@@ -135,8 +135,23 @@ class WdController extends BaseController
     {
         $group = "";
         $users = array();
-        if ($request->adult) {
-            foreach ($request->adult as $guest) {
+        if ($request->adults) {
+            foreach ($request->adults as $guest) {
+                $user_check = User::select('email')->where('email', $guest['email'])->first();
+                if (!$user_check == null){
+                    $request->adults = count($request->adults);
+                    if (isset($request->children)) {
+                        $request->children = count($request->children);
+                    }
+                    $message = $user_check->email . " ist bereits registriert. Vielleicht hat dich jemand, den du kennst, bereits angemeldet. Sollte dem nicht so sein, wende dich bitte an Eli oder Stefan.";
+                    return view('attend')
+                        -> with('adults', $request->adults)
+                        -> with('children', $request->children)
+                        -> with('message', $message);
+
+                }
+                }
+            foreach ($request->adults as $guest) {
                 $user = new User();
                 $user->name = $guest['first_name'] . ' ' . $guest['last_name'];
                 $user->first_name = $guest['first_name'];
@@ -156,7 +171,7 @@ class WdController extends BaseController
                 $group .= $user->id . ", ";
             }
         }
-        if ($request->child) {
+        if ($request->children) {
             foreach ($request->child as $guest) {
                 $user = new User();
                 $user->name = $guest['first_name'] . ' ' . $guest['last_name'];
