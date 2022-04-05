@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use \Illuminate\Notifications\Notifiable;
-
+use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -28,7 +28,14 @@ class WdController extends BaseController
         auth()->logout();
         return redirect('/');
     }
-
+/*
+    public function artisanCommands(){
+        Artisan::call('config:cache');
+        Artisan::call('route:cache');
+        Artisan::call('view:cache');
+        echo 'commands executed';
+    }
+*/
     public function attend(Request $request) {
         if (!$request->adults) {
          return redirect()->back();

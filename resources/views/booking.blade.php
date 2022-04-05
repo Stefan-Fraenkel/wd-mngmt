@@ -94,6 +94,12 @@
 				</div>
 			</div>
             <div class="row animate-box">
+                <div class="row" style="display: flex; justify-content: center; padding-bottom: 20px">
+                    <div style="display: flex; justify-content: center">
+                        <a href="/profile"  class="btn btn-default btn-block" style="background: white; color: #F14E95; height: 54px; line-height: 38px; text-align: center;">{{ __('Ich benötige kein Hotelzimmer')}}</a>
+                    </div>
+                </div>
+                <br>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 text-center fh5co-heading" style="padding-left: 3%; padding-right: 3%;">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
@@ -103,19 +109,12 @@
                                 {{ __('Wir haben für euch spezielle Konditionen ausgehandelt, die unter den regulären Preisen liegen.')}}<br>
                                 {{ __('Sie gelten auch, wenn ihr direkt vor oder nach der Hochzeitsfeier noch weitere Tage dort verbringen wollt.')}}<br>
                                 {{ __('Bei den Preisen ist außerdem ein Frühstück und der Zugang zum Spa-Bereich inklusive sowie ein Stellplatz für ein Auto.')}}<br>
-                                {{ __('Mehr Informationen findet ihr auf der ')}} <a style="color: white;" href="https://hotel-orbita.bg/en/" target="_blank"><u>{{ __('offiziellen Seite des Hotels')}}</u></a>.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row animate-box" style="padding-bottom: 1%;">
-                <div class="row" style="display: flex; justify-content: center; padding-bottom: 20px">
-                    <div style="display: flex; justify-content: center">
-                        <a href="/profile"  class="btn btn-default btn-block" style="background: white; color: #F14E95; height: 54px; line-height: 38px; text-align: center;">{{ __('Ich benötige kein Hotelzimmer')}}</a>
-                    </div>
-                </div>
-                <br>
 				<div class="col-md-10 col-md-offset-1">
                     <div class="row" style="padding-left: 2%; padding-right: 2%;">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
@@ -126,6 +125,7 @@
                             {{ __('Kinder unter 12 Jahren 35 lv (ca. 18 €)')}}<br><br>
                             {{ __('Die größten Zimmer bieten Platz für bis zu 4 Erwachsene mit 2 Kinder.')}}<br>
                             {{ __('Auf die Auswahl des genauen Zimmers haben wir keinen Einfluss.')}}<br>
+                            {{ __('Mehr Informationen findet ihr auf der ')}} <a style="color: white;" href="https://hotel-orbita.bg/en/" target="_blank"><u>{{ __('offiziellen Seite des Hotels')}}</u></a>.
                         </div>
                     </div>
                     <form class="form-inline" id="booking" method="POST" action={{route("bookRoom")}}>

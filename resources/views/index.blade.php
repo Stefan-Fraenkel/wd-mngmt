@@ -163,7 +163,7 @@
                                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                                     <h2>{{ __('Feiert mit uns!')}}</h2>
                                     <p>{{ __('Eine Reise nach Bulgarien ist nicht selbstverständlich.')}}<br>
-                                    {{ __('Darum wünschen wir uns nur ein Geschenk: Das ihr möglichst alle kommt.')}}</p>
+                                    {{ __('Darum wünschen wir uns nur ein Geschenk: Dass ihr möglichst alle kommt.')}}</p>
                                 </div>
                             </div>
                             <div class="row animate-box">
@@ -198,15 +198,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-sm-4">
-                                            <button type="submit" class="btn btn-default btn-block">{{ __('anmelden')}}</button>
+                                            <button type="submit" class="btn btn-default btn-block">{{ __('zusagen')}}</button>
                                         </div>
                                     </form>
                                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                                         <br>
-                                        <p>{{ __('Meldet euch bitte bis zum 30.04. an. Danke.')}}</p>
+                                        <p>{{ __('Tragt euch bitte bis zum 30.04. ein. Danke.')}}</p>
                                     </div>
                                 </div>
                             </div>
+                    <br>
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2>{{ __('Schon zugesagt?') }}</h2>
+                            <p>{{ __('Hier kannst du alles weitere erledigen.') }}</p>
+                            <p><a href="/profile" class="btn btn-default btn-sm" style="height: 54px; line-height: 38px;">{{ __('Dein Profil') }}</a></p>
+                        </div>
+                    </div>
                 @endauth
             </div>
         </div>

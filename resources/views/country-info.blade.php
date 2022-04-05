@@ -144,7 +144,7 @@
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
                             <h2 style="color: #F14E95">{{ __('Salat') }}</h2>
                             <p style="color: #828282">
-                                {{ __('Kommt traditionell ohne Dressing aus.')}}<br>
+                                {{ __('Wird traditionell ohne Dressing serviert.')}}<br>
                                 {{ __('Essig und Öl stehen am Tisch bereit.')}}
                             </p>
                             <img src="images/salad.jpg" style="border-radius: 50%; height: 192px;">

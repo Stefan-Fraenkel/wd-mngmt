@@ -68,16 +68,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-2 menu-1">
-                    <div id="fh5co-logo"><a href="index.html">{{ __('Hochzeit') }}<strong>.</strong></a></div>
+                    <div id="fh5co-logo"><a href="index.html" style="color: #828282">{{ __('Hochzeit') }}<strong>.</strong></a></div>
                 </div>
-                <div class="col-xs-10 text-right menu-1">
+                <div class="col-xs-10 text-right menu-1" style="color: #828282">
                     <ul>
-                        <li><a href="index.html">{{ __('Start') }}</a></li>
+                        <li><a href="index.html" style="color: #828282">{{ __('Start') }}</a></li>
                         @auth
-                            <li class="active"><a href="/profile">{{ __('Mein Profil') }}</a></li>
-                            <li><a href="/wd-logout">{{ __('Abmelden') }}</a>
+                            <li><a href="/profile" style="color: #828282">{{ __('Mein Profil') }}</a></li>
+                            <li><a href="/wd-logout" style="color: #828282">{{ __('Abmelden') }}</a>
                         @else
-                            <li><a href="/profile">{{ __('Anmelden') }}</a></li>
+                            <li><a href="/profile" style="color: #828282">{{ __('Anmelden') }}</a></li>
                         @endauth
                     </ul>
                 </div>
@@ -94,7 +94,7 @@
                     <div class="row animate-box">
                         <div class="row">
                             <div style="display: flex; justify-content: center">
-                                <a href="/#travel" class="btn btn-default btn-block" style="background: #F14E95; color: white; width: 50%; height: 54px; line-height: 38px;">{{ __('zurück zur Startseite') }}</a>
+                                <a href="/#travel" class="btn btn-default btn-sm" style="background: #F14E95; color: white; width: 50%; height: 54px; line-height: 38px;">{{ __('zur Startseite') }}</a>
                             </div>
                             <br>
                             <div style="display: flex; justify-content: center">
