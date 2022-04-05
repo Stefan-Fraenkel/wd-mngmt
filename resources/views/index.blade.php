@@ -304,7 +304,7 @@
                                     <h3>{{ __('Tanzkurs') }}</h3>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        <span>{{ __('16:00 - 17:30 Uhr') }}</span>
+                                        <span>{{ __('16:30 - 18:00 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
