@@ -291,7 +291,7 @@
                                     <h3>{{ __('Stadtführung') }}</h3>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        <span>{{ __('14:00 - 15:30 Uhr') }}</span>
+                                        <span>{{ __('10:00 - 11:30 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
