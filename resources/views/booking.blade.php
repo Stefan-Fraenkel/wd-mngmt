@@ -123,7 +123,7 @@
                             {{ __('ab 2 Personen 99 lv (ca. 50 €)')}}<br><br>
                             {{ __('Kinder unter 6 Jahren kostenlos')}}<br>
                             {{ __('Kinder unter 12 Jahren 35 lv (ca. 18 €)')}}<br><br>
-                            {{ __('Die größten Zimmer bieten Platz für bis zu 4 Erwachsene mit 2 Kinder.')}}<br>
+                            {{ __('Die größten Zimmer bieten Platz für bis zu 4 Erwachsene mit 2 Kindern.')}}<br>
                             {{ __('Auf die Auswahl des genauen Zimmers haben wir keinen Einfluss.')}}<br>
                             {{ __('Mehr Informationen findet ihr auf der ')}} <a style="color: white;" href="https://hotel-orbita.bg/en/" target="_blank"><u>{{ __('offiziellen Seite des Hotels')}}</u></a>.
                         </div>
