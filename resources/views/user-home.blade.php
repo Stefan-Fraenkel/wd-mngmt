@@ -165,7 +165,7 @@
                                             {{ __('Falls du doch im Hotel übernachten willst, kannst du das hier nachtragen.') }}
                                         </p>
                                         <div class="row" style="padding-top: 20px">
-                                            <a href="/booking" class="btn btn-default btn-sm" style="background: white; color: #F14E95; width: 50%; height: 54px; line-height: 38px;">{{ __('Zimmer buchen') }}</a>
+                                            <a href="/booking" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Zimmer buchen') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@
                                             {{ __('Du hast bereits ein Zimmer gebucht.') }}
                                         </p>
                                         <div class="row" style="padding-top: 20px">
-                                            <a href="#" class="btn btn-default btn-sm" style="background: white; color: #F14E95; width: 50%; height: 54px; line-height: 38px;">{{ __('Vielen Dank!') }}</a>
+                                            <a href="#" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Vielen Dank!') }}</a>
                                         </div>
                                     </div>
                                 </div>
