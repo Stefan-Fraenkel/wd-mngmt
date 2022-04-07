@@ -75,6 +75,10 @@ class WdController extends BaseController
         }
         else {
             $user = Auth::user();
+            if ($user->booking){ //to prevent multiple bookings by going back in browser
+                $message = "Du hast bereits eine Buchung vorgenommen. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
+                return $this->showProfile($message);
+            }
             $group_ids = explode(', ', $user->group);
             $group = array();
             foreach ($group_ids as $id) {
@@ -86,7 +90,7 @@ class WdController extends BaseController
 
     public function updateGuest(Request $request)
     {
-        
+
         if(isset($request['members']) && $request->isMethod('post')) {
 
             foreach ($request['members'] as $member) {
@@ -112,7 +116,7 @@ class WdController extends BaseController
             }
             else {
                 return $this->showProfile();
-            } 
+            }
         }
         else {
             $user = Auth::user();
@@ -125,16 +129,24 @@ class WdController extends BaseController
         }
     }
 
-    public function showProfile()
+    public function showProfile($message=null)
     {
         $user = Auth::user();
+        $creator = false;
+
         if ($user) {
             $group_ids = explode(', ', $user->group);
             $group = array();
             foreach ($group_ids as $id) {
-                $group[] = User::find($id);
+                $member = User::find($id);
+                if ($member->id != Auth::user()->id) {
+                    $group[] = $member;
+                }
             }
-            return view('user-home')->with('group', $group)->with('number', count($group));
+            if ($user->id == $group_ids[0]) { //check if current user is creator of the registration (only creator should be able to edit things)
+                $creator = true;
+            }
+            return view('user-home')->with('group', $group)->with('number', count($group))->with('creator', $creator)->with('message', $message);
         }
             else return redirect('/login');
     }
@@ -145,7 +157,7 @@ class WdController extends BaseController
         $users = array();
         $check_duplicate = array();
         $login_user = null;
-        
+
         if ($request->adults) {
 
             foreach ($request->adults as $guest) {
@@ -153,7 +165,7 @@ class WdController extends BaseController
                     $check_duplicate[] = $guest['email'];
                 }
             }
-            
+
             if(count($check_duplicate) != count(array_unique($check_duplicate))){
                 $request->adults = count($request->adults);
                 if (isset($request->children)) {

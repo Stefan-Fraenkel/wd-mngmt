@@ -90,24 +90,22 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>{{ __('Hallo,') }} {{$group[0]->first_name}}{{ __(', dies ist deine Seite') }}</h2>
-                    @if(isset($group[1]))
+                    <h2>{{ __('Hallo,') }} {{Auth::user()->first_name}}{{ __(', dies ist deine Seite') }}</h2>
+                    @if(isset($group[0]))
                         <p>{{ __('Du kommst zusammen mit ') }}
-                            @if(isset($group[2]))
+                            @if(isset($group[1]))
                             @php
                                 $counter=1;
                                 foreach ($group as $members) {
-                                    if ($counter > 1) {
-                                        if ($number > $counter) {
-                                            echo $members->first_name . ', ';
-                                        }
-                                        else echo 'und ' . $members->first_name . '.';
+                                    if ($number > $counter) {
+                                        echo $members->first_name . ', ';
                                     }
+                                    else echo 'und ' . $members->first_name . '.';
                                 $counter++;
                                 }
                             @endphp
                             @else
-                                {{$group[1]->first_name}}.
+                                {{$group[0]->first_name}}.
                             @endif
                             {{ __('Vielen Dank für eure Zusage!') }}</p>
                     @else
@@ -124,7 +122,7 @@
 				</div>
 			</div>
                 <div class="row animate-box">
-                    @if(!Auth::user()->dinner)
+                    @if(!Auth::user()->dinner && $creator == true)
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                             <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
@@ -139,6 +137,21 @@
                             </div>
                         </div>
                     </div>
+                    @elseif(!$creator == true)
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                                <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
+                                    <h2>{{ __('Programm und Menu') }}</h2>
+                                    <br>
+                                    <p style="color: white">
+                                        {{ __('Nur die Person, die dich angemeldet hat, kann hier Einstellungen vornehmen.') }}
+                                    </p>
+                                    <div class="row" style="padding-top: 20px">
+                                        <a href="#" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Wir freuen uns auf euch!') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @else
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -155,7 +168,7 @@
                             </div>
                         </div>
                     @endif
-                    @if(!Auth::user()->booking)
+                    @if(!Auth::user()->booking && $creator == true)
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                                     <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
@@ -166,6 +179,21 @@
                                         </p>
                                         <div class="row" style="padding-top: 20px">
                                             <a href="/booking" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Zimmer buchen') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @elseif(!$creator == true)
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                                    <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
+                                        <h2>{{ __('Hotel') }}</h2>
+                                        <br>
+                                        <p style="color: white">
+                                            {{ __('Nur die Person, die dich angemeldet hat, kann hier Einstellungen vornehmen.') }}
+                                        </p>
+                                        <div class="row" style="padding-top: 20px">
+                                            <a href="#" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Wir freuen uns auf euch!') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -190,6 +218,14 @@
 		</div>
 	</div>
 	</div>
+
+    @if(isset($message))
+        <script>
+            setTimeout(function(){
+                alert("{{$message}}");
+            }, 1000);
+        </script>
+    @endif
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
