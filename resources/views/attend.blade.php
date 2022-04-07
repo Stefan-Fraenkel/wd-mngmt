@@ -125,9 +125,9 @@
                                 <div class="form-group">
                                     <label for="email" class="sr-only">{{ __('Email')}}</label>
                                     @if($i==1)
-                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
+                                    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
                                     @else
-                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
+                                        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
                                     @endif
                                 </div>
                             </div>
@@ -145,16 +145,14 @@
                                     <div class="form-group">
                                     </div>
                                 </div>
+                                @if($i==1)
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
-                                        <label for="password" class="sr-only">{{ __('Passwort')}}</label>
-                                        @if($i==1)
+                                        <label for="password" class="sr-only">{{ __('Passwort')}}</label>                           
                                             <input type="password" name="adults[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
-                                        @else
-                                            <input type="password" name="adults[{{$i}}][password]" class="form-control" id="password" placeholder="Passwort">
-                                        @endif
                                     </div>
                                 </div>
+                                @endif
                             </div>
                             <div>&nbsp</div>
                         @endfor
