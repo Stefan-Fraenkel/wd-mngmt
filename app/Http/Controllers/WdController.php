@@ -86,10 +86,12 @@ class WdController extends BaseController
 
     public function updateGuest(Request $request)
     {
-
+        
         if(isset($request['members']) && $request->isMethod('post')) {
+
             foreach ($request['members'] as $member) {
                 $user = User::find($member['id']);
+
                 if (isset($member['dinner'])) {
                     $user->dinner = $member['dinner'];
                 }
@@ -104,7 +106,13 @@ class WdController extends BaseController
                 }
                 $user->save();
             }
-            return $this->bookRoom($request);
+
+            if(isset($request['booking'])) {
+                return $this->bookRoom($request);
+            }
+            else {
+                return $this->showProfile();
+            } 
         }
         else {
             $user = Auth::user();
@@ -135,11 +143,34 @@ class WdController extends BaseController
     {
         $group = "";
         $users = array();
-
+        $check_duplicate = array();
+        $login_user = null;
+        
         if ($request->adults) {
 
             foreach ($request->adults as $guest) {
-                $user_check = User::select('email')->where('email', $guest['email'])->first();
+                if (isset($guest['email'])) {
+                    $check_duplicate[] = $guest['email'];
+                }
+            }
+            
+            if(count($check_duplicate) != count(array_unique($check_duplicate))){
+                $request->adults = count($request->adults);
+                if (isset($request->children)) {
+                    $request->children = count($request->children);
+                }
+                $message = "Es können nicht mehrere Personen mit der selben E-Mail Adresse angelegt werden.";
+                return view('attend')
+                -> with('adults', $request->adults)
+                -> with('children', $request->children)
+                -> with('message', $message);
+              }
+
+            foreach ($request->adults as $guest) {
+                $user_check = null;
+                if (isset($guest['email'])) {
+                    $user_check = User::select('email')->where('email', $guest['email'])->first();
+                }
                 if (!$user_check == null){
                     if (!$user_check->email == null) {
                         $request->adults = count($request->adults);
@@ -156,28 +187,28 @@ class WdController extends BaseController
                     }
                 }
 
-            $login_user = null;
-
             foreach ($request->adults as $guest) {
+
                 $user = new User();
                 $user->name = $guest['first_name'] . ' ' . $guest['last_name'];
                 $user->first_name = $guest['first_name'];
                 $user->last_name = $guest['last_name'];
                 $user->adult = true;
-                if ($guest['email']) {
+                if (isset($guest['email'])) {
                     $user->email = $guest['email'];
                 }
-                if ($guest['password']) {
+                if (isset($guest['password'])) {
                     $user->password = Hash::make($guest['password']);
                 }
-                if ($guest['phone']) {
+                if (isset($guest['phone'])) {
                     $user->phone = $guest['phone'];
                 }
+
                 $user->save();
                 $users[] = $user;
                 $group .= $user->id . ", ";
                 if ($login_user == null ) {
-                    $login_user = $guest['email'];
+                    $login_user = $user->email;
                 }
             }
         }
