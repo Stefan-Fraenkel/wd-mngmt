@@ -133,8 +133,10 @@
                                             <option style="display: none" value="">Menu</option>
                                             <option style="color: grey" value="beef">Rind</option>
                                             <option style="color: grey" value="chicken">Hühnchen</option>
-                                            <option style="color: grey" value="fish">Fisch</option>
+                                            <option style="color: grey" value="duck">Ente</option>
+                                            <option style="color: grey" value="salmon">Lachs</option>
                                             <option style="color: grey" value="vegan">Vegan</option>
+                                            <option style="color: grey" value="pork">Schwein</option>
                                         </select>
                                     </div>
                                 </div>
@@ -202,7 +204,12 @@
                                     <a href="{{ url('/profile')}}"  class="btn btn-default btn-block" style="background: white; color: #F14E95; height: 54px; line-height: 40px; text-align: center;">{{ __('später entscheiden') }}</a>
                                 </div>
                                 <div class="col-md-4 col-sm-4" style="float: right">
+                                    @if(Auth::user()->booking)
+                                    <button type="submit" class="btn btn-default btn-block">{{ __('speichern') }}</button>
+                                    @else
                                     <button type="submit" class="btn btn-default btn-block">{{ __('weiter') }}</button>
+                                    <input type="hidden" name="booking" value="1">
+                                    @endif
                                 </div>
                             </div>
                         </div>
