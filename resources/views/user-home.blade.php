@@ -90,9 +90,9 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Hallo, {{$group[0]->first_name}}, dies ist deine Seite</h2>
+                    <h2>{{ __('Hallo,') }} {{$group[0]->first_name}}{{ __(', dies ist deine Seite') }}</h2>
                     @if(isset($group[1]))
-                        <p>Du kommst zusammen mit
+                        <p>{{ __('Du kommst zusammen mit ') }}
                             @if(isset($group[2]))
                             @php
                                 $counter=1;
@@ -109,9 +109,9 @@
                             @else
                                 {{$group[1]->first_name}}.
                             @endif
-                            Vielen Dank für eure Zusage!</p>
+                            {{ __('Vielen Dank für eure Zusage!') }}</p>
                     @else
-                        <p>Vielen Dank für deine Zusage!</p>
+                        <p>{{ __('Vielen Dank für deine Zusage!') }}</p>
                     @endif
                     <div class="row animate-box">
                         <div class="row">
@@ -186,24 +186,6 @@
                                 </div>
                             </div>
                     @endif
-{{--
-                    @if(isset($group[1]))
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                                <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                                    <h2>{{ __('Gruppe verwalten') }}</h2>
-                                    <br>
-                                    <p style="color: white">
-                                        {{ __('Falls du für ein weiteres Mitglied deiner Gruppe ein eigenes Profil anlegen möchtest, kannst du das hier erledigen.') }} <br>
-                                    </p>
-                                    <div class="row" style="padding-top: 20px">
-                                        <a href="#" class="btn btn-default btn-sm" style="background: white; color: #F14E95; width: 50%; height: 54px; line-height: 38px;">{{ __('Profil anlege') }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
---}}
                 </div>
 		</div>
 	</div>

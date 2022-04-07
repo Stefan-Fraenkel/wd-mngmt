@@ -122,7 +122,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group center" style="background: white; color: #F14E95; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
-                                        Allgemein
+                                        {{ __('Allgemein')}}
                                     </div>
                                 </div>
                                 <input type="hidden" name="members[{{$members->id}}][id]" value="{{$members->id}}">
@@ -130,13 +130,13 @@
                                     <div class="form-group">
                                         <label for="dinner" class="sr-only"></label>
                                         <select class="form-control" name="members[{{$members->id}}][dinner]" id="dinner{{$members->id}}" required>
-                                            <option style="display: none" value="">Menu</option>
-                                            <option style="color: grey" value="beef">Rind</option>
-                                            <option style="color: grey" value="chicken">Hühnchen</option>
-                                            <option style="color: grey" value="duck">Ente</option>
-                                            <option style="color: grey" value="salmon">Lachs</option>
-                                            <option style="color: grey" value="vegan">Vegan</option>
-                                            <option style="color: grey" value="pork">Schwein</option>
+                                            <option style="display: none" value="">{{ __('Menu')}}</option>
+                                            <option style="color: grey" value="beef">{{ __('Rind')}}</option>
+                                            <option style="color: grey" value="chicken">{{ __('Hühnchen')}}</option>
+                                            <option style="color: grey" value="duck">{{ __('Ente')}}</option>
+                                            <option style="color: grey" value="salmon">{{ __('Lachs')}}</option>
+                                            <option style="color: grey" value="vegan">{{ __('Vegan')}}</option>
+                                            <option style="color: grey" value="pork">{{ __('Schwein')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -144,11 +144,11 @@
                                     <div class="form-group">
                                         <label for="covid" class="sr-only"></label>
                                         <select class="form-control" name="members[{{$members->id}}][covid]" id="covid{{$members->id}}" required>
-                                            <option style="display: none" value="">Corona Impfstatus</option>
-                                            <option style="color: grey" value="none">keine Impfung</option>
-                                            <option style="color: grey" value="first">1. Impfung</option>
-                                            <option style="color: grey" value="second">2. Impfung</option>
-                                            <option style="color: grey" value="third">3. Impfung</option>
+                                            <option style="display: none" value="">{{ __('Corona Impfstatus')}}</option>
+                                            <option style="color: grey" value="none">{{ __('keine Impfung')}}</option>
+                                            <option style="color: grey" value="first">{{ __('1. Impfung')}}</option>
+                                            <option style="color: grey" value="second">{{ __('2. Impfung')}}</option>
+                                            <option style="color: grey" value="third">{{ __('3. Impfung')}}</option>
                                         </select>
                                     </div>
                                 </div>

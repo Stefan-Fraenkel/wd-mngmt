@@ -90,8 +90,8 @@
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2 style="color: #F14E95">Reisen nach Bulgarien</h2>
-                    <p>Mit diesen Tipps kommst du schneller ans Ziel.</p>
+                    <h2 style="color: #F14E95">{{ __('Reisen nach Bulgarien') }}</h2>
+                    <p>{{ __('Mit diesen Tipps kommst du schneller ans Ziel.') }}</p>
                     <div class="row animate-box">
                         <div class="row">
                             <div style="display: flex; justify-content: center">

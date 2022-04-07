@@ -108,13 +108,13 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="first_name" class="sr-only"></label>
-                                    <input type="text" name="adults[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
+                                    <input type="text" name="adults[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder={{ __('Vorname*')}}>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="last_name" class="sr-only"></label>
-                                    <input type="text" name="adults[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
+                                    <input type="text" name="adults[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder={{ __('Nachname*')}}>
                                 </div>
                             </div>
                                 <div class="col-md-4 col-sm-4">
@@ -125,9 +125,9 @@
                                 <div class="form-group">
                                     <label for="email" class="sr-only">{{ __('Email')}}</label>
                                     @if($i==1)
-                                    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder="Email*">
+                                    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" required placeholder={{ __('Email*')}}>
                                     @else
-                                        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder="Email">
+                                        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" name="adults[{{$i}}][email]" class="form-control" id="email" placeholder={{ __('Email')}}>
                                     @endif
                                 </div>
                             </div>
@@ -135,9 +135,9 @@
                                 <div class="form-group">
                                     <label for="phone" class="sr-only">{{ __('Telefon')}}</label>
                                     @if($i==1)
-                                        <input type="tel" name="adults[{{$i}}][phone]" class="form-control" id="phone" required placeholder="Telefon*">
+                                        <input type="tel" name="adults[{{$i}}][phone]" class="form-control" id="phone" required placeholder={{ __('Telefon*')}}>
                                     @else
-                                        <input type="tel" name="adults[{{$i}}][phone]" class="form-control" id="phone" placeholder="Telefon">
+                                        <input type="tel" name="adults[{{$i}}][phone]" class="form-control" id="phone" placeholder={{ __('Telefon')}}>
                                     @endif
                                 </div>
                             </div>
@@ -148,8 +148,8 @@
                                 @if($i==1)
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
-                                        <label for="password" class="sr-only">{{ __('Passwort')}}</label>                           
-                                            <input type="password" name="adults[{{$i}}][password]" class="form-control" id="password" required placeholder="Passwort*">
+                                        <label for="password" class="sr-only">{{ __('Passwort')}}</label>
+                                            <input type="password" name="adults[{{$i}}][password]" class="form-control" id="password" required placeholder={{ __('Passwort*')}}>
                                     </div>
                                 </div>
                                 @endif
@@ -166,13 +166,13 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="first_name" class="sr-only"></label>
-                                        <input type="text" name="children[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder="Vorname*">
+                                        <input type="text" name="children[{{$i}}][first_name]" class="form-control" id="first_name" required placeholder={{ __('Vorname*')}}>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="text" class="sr-only"></label>
-                                        <input type="text" name="children[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder="Nachname*">
+                                        <input type="text" name="children[{{$i}}][last_name]" class="form-control" id="last_name" required placeholder={{ __('Nachname*')}}>
                                     </div>
                                 </div>
                             </div>

@@ -90,8 +90,8 @@
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2 style="color: #F14E95">Blagoevgrad</h2>
-                    <p style="color: #828282">Ideen für Aktivitäten rund um die Hochzeitsfeier.</p>
+                    <h2 style="color: #F14E95">{{ __('Blagoevgrad') }}</h2>
+                    <p style="color: #828282">{{ __('Ideen für Aktivitäten rund um die Hochzeitsfeier.') }}</p>
                     <div class="row animate-box">
                         <div class="row">
                             <div style="display: flex; justify-content: center">
