@@ -176,7 +176,7 @@
                                 <div class="form-group center" style="background: #F14E95; color: white; border-radius: 4px; height: 54px; line-height: 54px; text-align: center;">
                                     {{ __('Kommentar zur Buchung')}}
                                 </div>
-                                <textarea class="form-group center form-control" name="comment" placeholder="{{ __('Schreibe hier einen Kommentar')}}"></textarea>
+                                <textarea class="form-group center form-control" name="comment" maxlength="250" placeholder="{{ __('Schreibe hier einen Kommentar')}}"></textarea>
                                 <div>
                                     <br>
                                 </div>
