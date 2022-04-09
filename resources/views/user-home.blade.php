@@ -114,7 +114,7 @@
                     <div class="row animate-box">
                         <div class="row">
                             <div style="display: flex; justify-content: center">
-                        <a href="/" class="btn btn-default btn-block" style="background: #F14E95; color: white; width: 50%; height: 54px; line-height: 38px;">{{ __('zur Startseite') }}</a>
+                        <a href="/" class="btn btn-default btn-block" style="background: #F14E95; color: white; width: auto; height: 54px; line-height: 38px;">{{ __('zur Startseite') }}</a>
 
                     </div>
                         </div>
@@ -122,21 +122,21 @@
 				</div>
 			</div>
                 <div class="row animate-box">
-                    @if(!Auth::user()->dinner && $creator == true)
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                            <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                                <h2>{{ __('Programm und Menu') }}</h2>
-                                <br>
-                                <p style="color: white">
-                                    {{ __('Wenn du dich noch nicht entschieden hast, kannst du das hier nachholen.') }}
-                                </p>
-                                <div class="row" style="padding-top: 20px">
-                                    <a href="/update" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Wochenende planen') }}</a>
+                    @if(!(isset(Auth::user()->sightseeing) || $save_fix == true) && $creator == true)
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                                <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
+                                    <h2>{{ __('Programm und Menu') }}</h2>
+                                    <br>
+                                    <p style="color: white">
+                                        {{ __('Wenn du dich noch nicht entschieden hast, kannst du das hier nachholen.') }}
+                                    </p>
+                                    <div class="row" style="padding-top: 20px">
+                                        <a href="/update" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Wochenende planen') }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @elseif(!$creator == true)
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
