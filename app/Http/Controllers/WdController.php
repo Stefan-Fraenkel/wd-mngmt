@@ -47,6 +47,12 @@ class WdController extends BaseController
 
     public function bookRoom(Request $request)
     {
+        $user = Auth::user();
+        if ($user->booking){ //to prevent multiple bookings by going back in browser
+            $message = "Du hast bereits eine Buchung vorgenommen. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
+            return $this->showProfile($message);
+        }
+
         if(isset($request['guests']) && $request->isMethod('post')) {
 
             $adult_guests = null;
@@ -74,11 +80,6 @@ class WdController extends BaseController
             return $this->showProfile();
         }
         else {
-            $user = Auth::user();
-            if ($user->booking){ //to prevent multiple bookings by going back in browser
-                $message = "Du hast bereits eine Buchung vorgenommen. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
-                return $this->showProfile($message);
-            }
             $group_ids = explode(', ', $user->group);
             $group = array();
             foreach ($group_ids as $id) {
@@ -88,26 +89,25 @@ class WdController extends BaseController
         }
     }
 
-    public function updateGuest(Request $request)
+    public function updateGuest(Request $request, $login_user=null)
     {
+        if ($login_user == null) {
+            $user = Auth::user();
+        }
+        else $user = $login_user;
+        if (isset($user->sightseeing)){ //to prevent multiple bookings by going back in browser
+            $message = "Du hast deine Präferenzen bereits angegeben. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
+            return $this->showProfile($message);
+        }
 
         if(isset($request['members']) && $request->isMethod('post')) {
 
             foreach ($request['members'] as $member) {
                 $user = User::find($member['id']);
-
-                if (isset($member['dinner'])) {
-                    $user->dinner = $member['dinner'];
-                }
-                if (isset($member['covid'])) {
-                    $user->covid = $member['covid'];
-                }
-                if (isset($member['dancing'])) {
-                    $user->dancing = $member['dancing'];
-                }
-                if (isset($member['sightseeing'])) {
-                    $user->sightseeing = $member['sightseeing'];
-                }
+                $user->dinner = $member['dinner'];
+                $user->covid = $member['covid'];
+                $user->dancing = $member['dancing'];
+                $user->sightseeing = $member['sightseeing'];
                 $user->save();
             }
 
@@ -115,7 +115,7 @@ class WdController extends BaseController
                 return $this->bookRoom($request);
             }
             else {
-                return $this->showProfile();
+                return $this->showProfile(null, true); // to ensure proper display of first look at view after save
             }
         }
         else {
@@ -129,7 +129,7 @@ class WdController extends BaseController
         }
     }
 
-    public function showProfile($message=null)
+    public function showProfile($message=null, $save_fix=false)
     {
         $user = Auth::user();
         $creator = false;
@@ -146,7 +146,7 @@ class WdController extends BaseController
             if ($user->id == $group_ids[0]) { //check if current user is creator of the registration (only creator should be able to edit things)
                 $creator = true;
             }
-            return view('user-home')->with('group', $group)->with('number', count($group))->with('creator', $creator)->with('message', $message);
+            return view('user-home')->with('group', $group)->with('number', count($group))->with('creator', $creator)->with('message', $message)->with('save_fix', $save_fix);
         }
             else return redirect('/login');
     }
@@ -244,7 +244,7 @@ class WdController extends BaseController
         }
         $login_user = User::select()->where('email', $login_user)->first();
         Auth::login($login_user);
-        return $this->updateGuest($request);
+        return $this->updateGuest($request, $login_user);
     }
 
 }
