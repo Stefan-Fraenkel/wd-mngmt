@@ -118,7 +118,7 @@
 				<div class="col-md-10 col-md-offset-1">
                     <div class="row" style="padding-left: 2%; padding-right: 2%;">
                         <div class="form-group form-control" style="height: 100%; text-align: center; padding: 20px">
-                            {{ __('Preis pro Person und Nacht:')}}<br><br>
+                            {{ __('Preis pro Übernachtung:')}}<br><br>
                             {{ __('1 Person: 89 lv (ca. 45 €)')}}<br>
                             {{ __('ab 2 Personen 99 lv (ca. 50 €)')}}<br><br>
                             {{ __('Kinder unter 6 Jahren kostenlos')}}<br>
