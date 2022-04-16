@@ -16,6 +16,21 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
+/*
+Route::get('/cache-refresh', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
+
+    return "Cache on server refreshed.";
+});
+*/
+
 Route::controller(WdController::class)->group(function () {
     Route::post('/attend', 'attend')->name('attend');
     Route::post('/create', 'createGuest')->name('createGuest');
