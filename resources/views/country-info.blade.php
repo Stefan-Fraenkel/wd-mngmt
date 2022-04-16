@@ -79,7 +79,6 @@
                         @else
                             <li><a href="/profile" style="color: #828282">{{ __('Anmelden') }}</a></li>
                         @endauth
-                        <li class=><a href="/switch">{{ __('на български') }}</a></li>
                     </ul>
                 </div>
             </div>
