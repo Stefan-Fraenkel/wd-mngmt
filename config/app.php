@@ -104,8 +104,8 @@ return [
 |
 */
     'available_locales' => [
-        'German' => 'de',
-        'Bulgarian' => 'bg',
+        'de' => 'de',
+        'bg' => 'bg',
     ],
 
     /*
@@ -174,6 +174,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        NotificationChannels\Pushbullet\PushbulletServiceProvider::class,
 
         /*
          * Package Service Providers...
