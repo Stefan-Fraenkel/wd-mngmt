@@ -68,18 +68,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">{{ __('Hochzeit') }}<strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="/">{{ __('Hochzeit') }}<strong>.</strong></a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="index.html">{{ __('Start') }}</a></li>
+						<li class="active"><a href="/">{{ __('Start') }}</a></li>
                         @auth
                             <li><a href="{{ url('/profile')}}">{{ __('Mein Profil') }}</a></li>
                             <li><a href="/wd-logout">{{ __('Abmelden') }}</a></li>
                         @else
                             <li><a href="{{ url('/profile')}}">{{ __('Anmelden') }}</a></li>
                         @endauth
-					</ul>
+                        <li class=><a href="/switch">{{ __('на български') }}</a></li>
+                    </ul>
 				</div>
 			</div>
 
