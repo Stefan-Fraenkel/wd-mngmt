@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WdController;
-
+use App\Http\Controllers\LanguageController;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,54 +16,66 @@ use App\Http\Controllers\WdController;
 |
 */
 
-Route::get('/', function () {
+Route::controller(WdController::class)->group(function () {
+    Route::post('/attend', 'attend')->name('attend');
+    Route::post('/create', 'createGuest')->name('createGuest');
+    Route::match(['get', 'post'],'/update', 'updateGuest')->name('updateGuest');
+    Route::match(['get', 'post'],'/booking', 'bookRoom')->name('bookRoom');
+    Route::get('/profile', 'showProfile')->name('showProfile');
+    Route::get('/wd-logout', 'logout');
+});
+
+Route::get('/switch', [LanguageController::class, 'simpleSwitch']);
+Route::get('/bg', [LanguageController::class, 'bgStart']);
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/', function () {
+        if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+            app()->setLocale(Session()->get('applocale'));
+        }
+        return view('index');
+    });
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+        app()->setLocale(Session()->get('applocale'));
+    }
     return view('index');
-});
-
-Route::get('/master', function () {
-    return view('wd-master');
-});
-
-Route::post('/attend', [WdController::class, 'attend'])->name('attend');
-Route::post('/create', [WdController::class, 'createGuest'])->name('createGuest');
-Route::match(['get', 'post'],'/update', [WdController::class, 'updateGuest'])->name('updateGuest');
-Route::match(['get', 'post'],'/booking', [WdController::class, 'bookRoom'])->name('bookRoom');
-Route::get('/profile', [WdController::class, 'showProfile'])->name('showProfile');
-Route::get('/wd-logout', [WdController::class, 'logout']);
-
-//Route::get('/artisan', [WdController::class, 'artisanCommands']);
+})->name('dashboard');
 
 Route::get('/travel-info', function () {
+    if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+        app()->setLocale(Session()->get('applocale'));
+    }
     return view('travel-info');
 });
 
-Route::get('/master', function () {
-    return view('wd-master');
-});
-
 Route::get('/transfer-info', function () {
+    if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+        app()->setLocale(Session()->get('applocale'));
+    }
     return view('transfer-info');
 });
 
 Route::get('/bg-info', function () {
+    if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+        app()->setLocale(Session()->get('applocale'));
+    }
     return view('bg-info');
 });
 
 Route::get('/region-info', function () {
+    if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+        app()->setLocale(Session()->get('applocale'));
+    }
     return view('region-info');
 });
 
 Route::get('/country-info', function () {
+    if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
+        app()->setLocale(Session()->get('applocale'));
+    }
     return view('country-info');
 });
 
-Route::get('/{locale?}', function ($locale = null) {
-    if (isset($locale) && in_array($locale, config('app.available_locales'))) {
-        app()->setLocale($locale);
-    }
-    return view('index');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
