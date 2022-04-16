@@ -54,7 +54,7 @@ class WdController extends BaseController
         $user = Auth::user();
         if ($user->booking){ //to prevent multiple bookings by going back in browser
             if (Session()->get('applocale') == 'bg') {
-                $message = "Потвърждаване";
+                $message = "Вече си се регистрирал. Свържи се със Щефан или Ели за да предприемеш поправки.";
             }
             else $message = "Du hast bereits eine Buchung vorgenommen. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
             return $this->showProfile($message);
@@ -105,7 +105,7 @@ class WdController extends BaseController
         else $user = $login_user;
         if (isset($user->sightseeing)){ //to prevent multiple bookings by going back in browser
             if (Session()->get('applocale') == 'bg') {
-                $message = "Потвърждаване";
+                $message = "Вече си потвърдил твоите преференции. Свържи се със Щефан или Ели, ако искаш да направиш промени.";
             }
             else $message = "Du hast deine Präferenzen bereits angegeben. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
             return $this->showProfile($message);
@@ -188,7 +188,7 @@ class WdController extends BaseController
                     $request->children = count($request->children);
                 }
                 if (Session()->get('applocale') == 'bg') {
-                    $message = "Потвърждаване";
+                    $message = "Не можеш да регистрираш различни хора с един и същи имейл.";
                 }
                 else $message = "Es können nicht mehrere Personen mit der selben E-Mail Adresse angelegt werden.";
                 $this->translator->translate();
@@ -210,7 +210,7 @@ class WdController extends BaseController
                             $request->children = count($request->children);
                         }
                         if (Session()->get('applocale') == 'bg') {
-                            $message = "Потвърждаване";
+                            $message = "е регистриран. Можеби някой, когото познаваш вече те е регистрирал. Ако това не е така, обърни се към Ели или Щефан.";
                         }
                         else $message = $user_check->email . " ist bereits registriert. Vielleicht hat dich jemand, den du kennst, bereits angemeldet. Sollte dem nicht so sein, wende dich bitte an Eli oder Stefan.";
                         $this->translator->translate();
