@@ -20,20 +20,20 @@ class LanguageController extends BaseController
         return redirect()->back();
     }
 
-    public function simpleSwitch(Request $request) //for more than two languages
+    public function simpleSwitch(Request $request) //for only two languages
     {
         if (Session()->has('applocale') AND array_key_exists(Session()->get('applocale'), config('app.available_locales'))) {
             if (Session()->get('applocale') == 'bg') {
-                session()->put('applocale', 'de');
+                Session()->put('applocale', 'de');
             }
-            else session()->put('applocale', 'bg');
+            else Session()->put('applocale', 'bg');
         }
-        else session()->put('applocale', 'bg');
+        else Session()->put('applocale', 'bg');
         return redirect()->back();
     }
 
     public function bgStart(){
-        session()->put('applocale', 'bg');
+        Session()->put('applocale', 'bg');
         return redirect()->back();
     }
 
