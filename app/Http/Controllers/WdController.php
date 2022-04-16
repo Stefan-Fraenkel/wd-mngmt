@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use \Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\LanguageController;
 
 
 
@@ -24,8 +25,11 @@ class WdController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function logout () {
+
+    public function logout ()
+    {
         auth()->logout();
+        $this->translator->translate();
         return redirect('/');
     }
 /*
@@ -36,10 +40,19 @@ class WdController extends BaseController
         echo 'commands executed';
     }
 */
+
+    private $translator;
+
+    public function __construct()
+    {
+        $this->translator = new LanguageController;
+    }
+
     public function attend(Request $request) {
         if (!$request->adults) {
          return redirect()->back();
         }
+        $this->translator->translate();
         return view('attend')
             -> with('adults', $request->adults)
             -> with('children', $request->children);
@@ -49,7 +62,10 @@ class WdController extends BaseController
     {
         $user = Auth::user();
         if ($user->booking){ //to prevent multiple bookings by going back in browser
-            $message = "Du hast bereits eine Buchung vorgenommen. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
+            if (Session()->get('applocale') == 'bg') {
+                $message = "Потвърждаване";
+            }
+            else $message = "Du hast bereits eine Buchung vorgenommen. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
             return $this->showProfile($message);
         }
 
@@ -85,6 +101,7 @@ class WdController extends BaseController
             foreach ($group_ids as $id) {
                 $group[] = User::find($id);
             }
+            $this->translator->translate();
             return view('booking') -> with('group', $group);
         }
     }
@@ -96,7 +113,10 @@ class WdController extends BaseController
         }
         else $user = $login_user;
         if (isset($user->sightseeing)){ //to prevent multiple bookings by going back in browser
-            $message = "Du hast deine Präferenzen bereits angegeben. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
+            if (Session()->get('applocale') == 'bg') {
+                $message = "Потвърждаване";
+            }
+            else $message = "Du hast deine Präferenzen bereits angegeben. Um sie zu ändern, wende dich bitte an Eli oder Stefan.";
             return $this->showProfile($message);
         }
 
@@ -125,6 +145,7 @@ class WdController extends BaseController
             foreach ($group_ids as $id) {
                 $group[] = User::find($id);
             }
+            $this->translator->translate();
             return view('user-details') -> with('group', $group);
         }
     }
@@ -146,9 +167,13 @@ class WdController extends BaseController
             if ($user->id == $group_ids[0]) { //check if current user is creator of the registration (only creator should be able to edit things)
                 $creator = true;
             }
+            $this->translator->translate();
             return view('user-home')->with('group', $group)->with('number', count($group))->with('creator', $creator)->with('message', $message)->with('save_fix', $save_fix);
         }
-            else return redirect('/login');
+            else {
+                $this->translator->translate();
+                return redirect('/login');
+            }
     }
 
     public function createGuest(Request $request)
@@ -171,7 +196,11 @@ class WdController extends BaseController
                 if (isset($request->children)) {
                     $request->children = count($request->children);
                 }
-                $message = "Es können nicht mehrere Personen mit der selben E-Mail Adresse angelegt werden.";
+                if (Session()->get('applocale') == 'bg') {
+                    $message = "Потвърждаване";
+                }
+                else $message = "Es können nicht mehrere Personen mit der selben E-Mail Adresse angelegt werden.";
+                $this->translator->translate();
                 return view('attend')
                 -> with('adults', $request->adults)
                 -> with('children', $request->children)
@@ -189,7 +218,11 @@ class WdController extends BaseController
                         if (isset($request->children)) {
                             $request->children = count($request->children);
                         }
-                        $message = $user_check->email . " ist bereits registriert. Vielleicht hat dich jemand, den du kennst, bereits angemeldet. Sollte dem nicht so sein, wende dich bitte an Eli oder Stefan.";
+                        if (Session()->get('applocale') == 'bg') {
+                            $message = "Потвърждаване";
+                        }
+                        else $message = $user_check->email . " ist bereits registriert. Vielleicht hat dich jemand, den du kennst, bereits angemeldet. Sollte dem nicht so sein, wende dich bitte an Eli oder Stefan.";
+                        $this->translator->translate();
                         return view('attend')
                             -> with('adults', $request->adults)
                             -> with('children', $request->children)
