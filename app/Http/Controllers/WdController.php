@@ -25,27 +25,18 @@ class WdController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    private $translator;
+
+    public function __construct()
+    {
+        $this->translator = new LanguageController;
+    }
 
     public function logout ()
     {
         auth()->logout();
         $this->translator->translate();
         return redirect('/');
-    }
-/*
-    public function artisanCommands(){
-        Artisan::call('config:cache');
-        Artisan::call('route:cache');
-        Artisan::call('view:cache');
-        echo 'commands executed';
-    }
-*/
-
-    private $translator;
-
-    public function __construct()
-    {
-        $this->translator = new LanguageController;
     }
 
     public function attend(Request $request) {
