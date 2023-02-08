@@ -206,7 +206,8 @@
                                         <h2>{{ __('Hotel') }}</h2>
                                         <br>
                                         <p style="color: white">
-                                            {{ __('Du hast bereits ein Zimmer gebucht.') }}
+                                            {{ __('Du hast bereits ein Zimmer gebucht.') }} <br>
+                                            {{__($check_in . ' - ' . $check_out) }}
                                         </p>
                                         <div class="row" style="padding-top: 20px">
                                             <a href="#" class="btn btn-default btn-sm" style="background: white; color: #F14E95; height: 54px; line-height: 38px;">{{ __('Vielen Dank!') }}</a>
