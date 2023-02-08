@@ -146,6 +146,15 @@ class WdController extends BaseController
         $user = Auth::user();
         $creator = false;
 
+        $check_in = "";
+        $check_out = "";
+        if ($user && $user->booking) {
+            $booking = (DB::table('bookings')->where('user_id', Auth::user()->id)->get(['adult_guests','child_guests', 'check_in', 'check_out'])->first());
+            $check_in = Carbon::parse($booking->check_in)->format('d.m.Y');
+            $check_out = Carbon::parse($booking->check_out)->format('d.m.Y');
+        }
+
+
         if ($user) {
             $group_ids = explode(', ', $user->group);
             $group = array();
@@ -159,7 +168,14 @@ class WdController extends BaseController
                 $creator = true;
             }
             $this->translator->translate();
-            return view('user-home')->with('group', $group)->with('number', count($group))->with('creator', $creator)->with('message', $message)->with('save_fix', $save_fix);
+            return view('user-home')
+                ->with('group', $group)
+                ->with('number', count($group))
+                ->with('creator', $creator)
+                ->with('message', $message)
+                ->with('check_in', $check_in)
+                ->with('check_out', $check_out)
+                ->with('save_fix', $save_fix);
         }
             else {
                 $this->translator->translate();
