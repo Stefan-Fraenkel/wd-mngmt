@@ -292,7 +292,7 @@
                                     <h3>{{ __('Stadtführung') }}</h3>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        <span>{{ __('10:00 - 11:30 Uhr') }}</span>
+                                        <span>{{ __('09:30 - 11:00 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
@@ -305,7 +305,7 @@
                                     <h3>{{ __('Tanzkurs') }}</h3>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        <span>{{ __('16:30 - 18:00 Uhr') }}</span>
+                                        <span>{{ __('17:00 - 18:30 Uhr') }}</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
@@ -319,7 +319,7 @@
 									<h3>{{ __('Hochzeitszeremonie') }}</h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
-										<span>{{ __('17:30 - 18:15 Uhr') }}</span>
+										<span>{{ __('17:45 - 18:30 Uhr') }}</span>
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
